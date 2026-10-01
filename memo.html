@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>夫婦メモ帳</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #c96b8a;
+      --rose-dark: #a05270;
+      --rose-mid: #dc9ab5;
+      --rose-bg: #fceef4;
+      --cocoa: #a07060;
+      --cocoa-bg: #f5ede8;
+      --lavender: #9b88c4;
+      --lavender-bg: #f0edf8;
+      --bg: #fdf8f9;
+      --white: #ffffff;
+      --border: #e8d0d8;
+      --text: #3d2530;
+      --muted: #9a7080;
+      --danger: #c8392b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.75;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+
+    /* ===== PASSWORD ===== */
+    #pw-screen {
+      position: fixed; inset: 0; z-index: 9999;
+      background: linear-gradient(150deg, #e8889f 0%, var(--rose) 50%, var(--rose-dark) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pw-card {
+      background: var(--white); border-radius: 24px; padding: 3rem 2.5rem;
+      text-align: center; width: min(420px, 92vw);
+      box-shadow: 0 24px 64px rgba(160,82,112,.35);
+    }
+    .pw-emoji { font-size: 3.8rem; margin-bottom: 1rem; line-height: 1; }
+    .pw-title { font-size: 1.35rem; font-weight: 800; color: var(--rose); margin-bottom: .25rem; }
+    .pw-sub { font-size: .85rem; color: var(--muted); margin-bottom: 2rem; }
+    .pw-input {
+      width: 100%; padding: .8rem 1rem; font-size: 1.4rem;
+      font-family: inherit; text-align: center; letter-spacing: .4em;
+      border: 2px solid var(--border); border-radius: 12px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .pw-input:focus { border-color: var(--rose); box-shadow: 0 0 0 4px rgba(201,107,138,.15); }
+    .pw-btn {
+      margin-top: .9rem; width: 100%; padding: .9rem;
+      font-size: 1rem; font-weight: 700; font-family: inherit;
+      background: var(--rose); color: white; border: none;
+      border-radius: 12px; cursor: pointer; transition: background .2s;
+    }
+    .pw-btn:hover { background: var(--rose-mid); }
+    .pw-error { margin-top: .75rem; font-size: .85rem; color: var(--danger); display: none; }
+
+    /* ===== LOGOUT ===== */
+    #logout-btn {
+      position: fixed; top: 12px; right: 14px; z-index: 100;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.8);
+      font-size: .72rem; font-family: inherit; padding: .3rem .75rem;
+      border-radius: 20px; cursor: pointer; transition: all .2s;
+    }
+    #logout-btn:hover { background: rgba(255,255,255,.25); color: white; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: linear-gradient(150deg, #e8889f 0%, var(--rose) 55%, var(--rose-dark) 100%);
+      color: white; padding: 2.5rem 1.5rem 2rem; text-align: center;
+    }
+    .site-nav {
+      display: flex; justify-content: center; gap: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap;
+    }
+    .nav-link {
+      font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.75);
+      text-decoration: none; background: rgba(255,255,255,.15);
+      padding: .25rem .8rem; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.25);
+      transition: all .2s;
+    }
+    .nav-link:hover { background: rgba(255,255,255,.25); color: white; }
+    .nav-link.active { background: rgba(255,255,255,.3); color: white; }
+    .site-tag {
+      display: inline-block; font-size: .75rem; font-weight: 700;
+      background: rgba(255,255,255,.2); padding: .25rem .85rem;
+      border-radius: 20px; margin-bottom: .75rem; letter-spacing: .05em;
+    }
+    .site-header h1 { font-size: clamp(1.2rem, 4vw, 1.75rem); font-weight: 800; line-height: 1.4; }
+    .site-header p { font-size: .85rem; opacity: .8; margin-top: .4rem; }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1rem; flex: 1; width: 100%; }
+
+    /* ===== STATUS BAR ===== */
+    .status-bar {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: 1rem; font-size: .78rem; color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #bbb; flex-shrink: 0; transition: background .3s;
+    }
+    .status-dot.saved { background: #7bc47b; }
+    .status-dot.saving { background: #f0c060; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    #status-text { color: var(--muted); font-size: .78rem; }
+
+    /* ===== TEXTAREA ===== */
+    .memo-wrap {
+      background: white; border: 1.5px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(160,82,112,.08);
+    }
+    .memo-toolbar {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .6rem 1rem; border-bottom: 1px solid var(--border);
+      background: var(--rose-bg); flex-wrap: wrap;
+    }
+    .memo-toolbar-label {
+      font-size: .75rem; font-weight: 700; color: var(--rose);
+      margin-right: auto;
+    }
+    .toolbar-btn {
+      font-size: .72rem; font-family: inherit; font-weight: 700;
+      padding: .25rem .65rem; border-radius: 8px; cursor: pointer;
+      border: 1.5px solid var(--border); background: white;
+      color: var(--muted); transition: all .15s;
+    }
+    .toolbar-btn:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-bg); }
+    .toolbar-btn.danger:hover { border-color: var(--danger); color: var(--danger); background: #fff0ee; }
+    #memo-area {
+      width: 100%; min-height: 480px; padding: 1.25rem 1.25rem;
+      font-family: 'M PLUS Rounded 1c', sans-serif; font-size: .92rem;
+      line-height: 1.85; border: none; outline: none; resize: vertical;
+      color: var(--text); background: white;
+    }
+    #memo-area::placeholder { color: #d4b8c4; }
+
+    /* ===== HISTORY ===== */
+    .history-block {
+      margin-top: 2rem; background: white;
+      border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .history-hd {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .75rem 1rem; background: var(--cocoa-bg);
+      border-bottom: 1px solid var(--border); cursor: pointer;
+      user-select: none;
+    }
+    .history-hd-label {
+      font-size: .82rem; font-weight: 700; color: var(--cocoa); flex: 1;
+    }
+    .history-hd-arrow { font-size: .7rem; color: var(--muted); transition: transform .2s; }
+    .history-hd.open .history-hd-arrow { transform: rotate(180deg); }
+    .history-list { display: none; }
+    .history-list.open { display: block; }
+    .history-item {
+      display: flex; align-items: flex-start; gap: .75rem;
+      padding: .65rem 1rem; border-bottom: 1px solid #f0e4ea;
+      font-size: .8rem; color: var(--text);
+    }
+    .history-item:last-child { border-bottom: none; }
+    .history-time { color: var(--muted); flex-shrink: 0; font-size: .73rem; margin-top: .1rem; }
+    .history-preview { flex: 1; white-space: pre-wrap; word-break: break-word; max-height: 3em; overflow: hidden; }
+    .history-restore {
+      flex-shrink: 0; font-size: .7rem; font-weight: 700;
+      color: var(--lavender); cursor: pointer; padding: .1rem .4rem;
+      border-radius: 6px; border: 1.5px solid var(--lavender-bg);
+      background: var(--lavender-bg); transition: all .15s;
+    }
+    .history-restore:hover { background: var(--lavender); color: white; }
+
+    footer {
+      background: var(--rose-dark); color: rgba(255,255,255,.6);
+      text-align: center; padding: 1.5rem; font-size: .78rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="pw-screen">
+  <div class="pw-card">
+    <div class="pw-emoji">📝</div>
+    <p class="pw-title">夫婦メモ帳</p>
+    <p class="pw-sub">二人で共同編集できるリアルタイムメモ</p>
+    <input type="password" id="pw-input" class="pw-input" placeholder="••••" maxlength="10"
+           onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="pw-btn" onclick="checkPw()">ひらく</button>
+    <p id="pw-err" class="pw-error">パスワードが違います。もう一度お試しください。</p>
+  </div>
+</div>
+
+<div id="main" style="display:none">
+  <button id="logout-btn" onclick="logout()">ログアウト</button>
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">📅 ロードマップ</a>
+      <a href="prep-list.html" class="nav-link">🍼 出産準備リスト</a>
+      <a href="memo.html" class="nav-link active">📝 メモ帳</a>
+    </nav>
+    <div class="site-tag">夫婦共同メモ</div>
+    <h1>夫婦メモ帳</h1>
+    <p>気になること・相談したいことを自由に書き込んでください</p>
+  </header>
+
+  <div class="container">
+
+    <div class="status-bar">
+      <div class="status-dot" id="status-dot"></div>
+      <span id="status-text">接続中...</span>
+    </div>
+
+    <div class="memo-wrap">
+      <div class="memo-toolbar">
+        <span class="memo-toolbar-label">📝 共有メモ</span>
+        <button class="toolbar-btn" onclick="insertTimestamp()">日時スタンプ</button>
+        <button class="toolbar-btn" onclick="insertDivider()">区切り線</button>
+        <button class="toolbar-btn danger" onclick="clearMemo()">クリア</button>
+      </div>
+      <textarea id="memo-area" placeholder="ここに気になること、相談したいことを書いてください。
+
+例）
+- 保育園の送り迎えの分担どうする？
+- 里帰りのタイミングについて
+- ベビーカー、どれにする？
+- 名前の候補リスト
+
+"></textarea>
+    </div>
+
+    <div class="history-block" id="history-block">
+      <div class="history-hd" onclick="toggleHistory()">
+        <span class="history-hd-label">🕐 保存履歴（直近10件）</span>
+        <span class="history-hd-arrow" id="history-arrow">▼</span>
+      </div>
+      <div class="history-list" id="history-list"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>夫婦共同メモ帳 — リアルタイム同期</p>
+  </footer>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, onValue, set, push, query, limitToLast, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+  const app = initializeApp({ databaseURL: "https://nasu-travel-default-rtdb.firebaseio.com" });
+  const db = getDatabase(app);
+
+  const MEMO_PATH = 'ikukyu2026/memo';
+  const HISTORY_PATH = 'ikukyu2026/memo_history';
+
+  let debounceTimer = null;
+  let isRemoteUpdate = false;
+  let historyOpen = false;
+
+  const area = document.getElementById('memo-area');
+  const dot = document.getElementById('status-dot');
+  const statusText = document.getElementById('status-text');
+
+  function setStatus(state, msg) {
+    dot.className = 'status-dot' + (state ? ' ' + state : '');
+    statusText.textContent = msg;
+  }
+
+  window.initMemo = function () {
+    setStatus('saving', '接続中...');
+
+    onValue(ref(db, MEMO_PATH), snap => {
+      const val = snap.val() || '';
+      if (area.value !== val) {
+        isRemoteUpdate = true;
+        const pos = area.selectionStart;
+        area.value = val;
+        area.selectionStart = area.selectionEnd = pos;
+        isRemoteUpdate = false;
+      }
+      setStatus('saved', '同期済み');
+    }, err => {
+      setStatus('', '接続エラー — ' + err.message);
+    });
+
+    onValue(query(ref(db, HISTORY_PATH), orderByChild('ts'), limitToLast(10)), snap => {
+      const items = [];
+      snap.forEach(child => items.unshift(child.val()));
+      renderHistory(items);
+    });
+
+    area.addEventListener('input', () => {
+      if (isRemoteUpdate) return;
+      setStatus('saving', '保存中...');
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const text = area.value;
+        set(ref(db, MEMO_PATH), text).then(() => {
+          setStatus('saved', '保存しました — ' + new Date().toLocaleTimeString('ja-JP'));
+          push(ref(db, HISTORY_PATH), { ts: Date.now(), text: text.slice(0, 300) });
+        }).catch(e => {
+          setStatus('', '保存エラー: ' + e.message);
+        });
+      }, 1200);
+    });
+  };
+
+  function renderHistory(items) {
+    const list = document.getElementById('history-list');
+    list.innerHTML = '';
+    if (!items.length) {
+      list.innerHTML = '<div class="history-item"><span class="history-preview" style="color:#bbb">まだ履歴がありません</span></div>';
+      return;
+    }
+    items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'history-item';
+      const t = new Date(item.ts).toLocaleString('ja-JP', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
+      row.innerHTML = `
+        <span class="history-time">${t}</span>
+        <span class="history-preview">${escHtml(item.text)}</span>
+        <span class="history-restore" onclick="restoreHistory(${JSON.stringify(item.text)})">復元</span>
+      `;
+      list.appendChild(row);
+    });
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  window.restoreHistory = function (text) {
+    if (!confirm('このバージョンに戻しますか？')) return;
+    area.value = text;
+    area.dispatchEvent(new Event('input'));
+  };
+
+  window.insertTimestamp = function () {
+    const ts = new Date().toLocaleString('ja-JP', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+    insertAtCursor(`\n--- ${ts} ---\n`);
+  };
+
+  window.insertDivider = function () {
+    insertAtCursor('\n────────────────────\n');
+  };
+
+  window.clearMemo = function () {
+    if (!confirm('メモを全部クリアしますか？（履歴からは復元できます）')) return;
+    area.value = '';
+    area.dispatchEvent(new Event('input'));
+  };
+
+  window.toggleHistory = function () {
+    historyOpen = !historyOpen;
+    const el = document.getElementById('history-list');
+    const hd = document.querySelector('.history-hd');
+    el.classList.toggle('open', historyOpen);
+    hd.classList.toggle('open', historyOpen);
+  };
+
+  function insertAtCursor(text) {
+    const start = area.selectionStart;
+    const end = area.selectionEnd;
+    area.value = area.value.slice(0, start) + text + area.value.slice(end);
+    area.selectionStart = area.selectionEnd = start + text.length;
+    area.focus();
+    area.dispatchEvent(new Event('input'));
+  }
+</script>
+
+<script>
+  const AUTH_KEY = 'ikukyu2026_auth';
+
+  function checkPw() {
+    if (document.getElementById('pw-input').value === '1111') {
+      localStorage.setItem(AUTH_KEY, 'ok');
+      showMain();
+    } else {
+      document.getElementById('pw-err').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  function showMain() {
+    document.getElementById('pw-screen').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    if (window.initMemo) window.initMemo();
+    else setTimeout(() => { if (window.initMemo) window.initMemo(); }, 800);
+  }
+
+  function logout() {
+    localStorage.removeItem(AUTH_KEY);
+    location.reload();
+  }
+
+  if (localStorage.getItem(AUTH_KEY) === 'ok') showMain();
+</script>
+</body>
+</html>

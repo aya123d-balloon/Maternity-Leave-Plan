@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出産準備リスト</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #c96b8a;
+      --rose-dark: #a05270;
+      --rose-mid: #dc9ab5;
+      --rose-bg: #fceef4;
+      --cocoa: #a07060;
+      --cocoa-bg: #f5ede8;
+      --lavender: #9b88c4;
+      --lavender-bg: #f0edf8;
+      --gold: #b08040;
+      --gold-bg: #fdf5e0;
+      --danger: #c8392b;
+      --bg: #fdf8f9;
+      --white: #ffffff;
+      --border: #e8d0d8;
+      --text: #3d2530;
+      --muted: #9a7080;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.75;
+    }
+
+    /* ===== PASSWORD ===== */
+    #pw-screen {
+      position: fixed; inset: 0; z-index: 9999;
+      background: linear-gradient(150deg, #e8889f 0%, var(--rose) 50%, var(--rose-dark) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pw-card {
+      background: var(--white); border-radius: 24px; padding: 3rem 2.5rem;
+      text-align: center; width: min(420px, 92vw);
+      box-shadow: 0 24px 64px rgba(160,82,112,.35);
+    }
+    .pw-emoji { font-size: 3.8rem; margin-bottom: 1rem; line-height: 1; }
+    .pw-title { font-size: 1.35rem; font-weight: 800; color: var(--rose); margin-bottom: .25rem; }
+    .pw-sub { font-size: .85rem; color: var(--muted); margin-bottom: 2rem; }
+    .pw-input {
+      width: 100%; padding: .8rem 1rem; font-size: 1.4rem;
+      font-family: inherit; text-align: center; letter-spacing: .4em;
+      border: 2px solid var(--border); border-radius: 12px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .pw-input:focus { border-color: var(--rose); box-shadow: 0 0 0 4px rgba(201,107,138,.15); }
+    .pw-btn {
+      margin-top: .9rem; width: 100%; padding: .9rem;
+      font-size: 1rem; font-weight: 700; font-family: inherit;
+      background: var(--rose); color: white; border: none;
+      border-radius: 12px; cursor: pointer; transition: background .2s, transform .1s;
+    }
+    .pw-btn:hover { background: var(--rose-mid); }
+    .pw-btn:active { transform: scale(.98); }
+    .pw-error { margin-top: .75rem; font-size: .85rem; color: var(--danger); display: none; }
+
+    /* ===== LOGOUT ===== */
+    #logout-btn {
+      position: fixed; top: 12px; right: 14px; z-index: 100;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.8);
+      font-size: .72rem; font-family: inherit; padding: .3rem .75rem;
+      border-radius: 20px; cursor: pointer; transition: all .2s;
+    }
+    #logout-btn:hover { background: rgba(255,255,255,.25); color: white; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: linear-gradient(150deg, #e8889f 0%, var(--rose) 55%, var(--rose-dark) 100%);
+      color: white; padding: 2.5rem 1.5rem 2rem; text-align: center;
+    }
+    .site-nav {
+      display: flex; justify-content: center; gap: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap;
+    }
+    .nav-link {
+      font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.75);
+      text-decoration: none; background: rgba(255,255,255,.15);
+      padding: .25rem .8rem; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.25);
+      transition: all .2s;
+    }
+    .nav-link:hover { background: rgba(255,255,255,.25); color: white; }
+    .nav-link.active { background: rgba(255,255,255,.3); color: white; }
+    .site-tag {
+      display: inline-block; font-size: .75rem; font-weight: 700;
+      background: rgba(255,255,255,.2); padding: .25rem .85rem;
+      border-radius: 20px; margin-bottom: .75rem; letter-spacing: .05em;
+    }
+    .site-header h1 { font-size: clamp(1.2rem, 4vw, 1.75rem); font-weight: 800; line-height: 1.4; }
+    .site-header p { font-size: .85rem; opacity: .8; margin-top: .4rem; }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+
+    /* ===== CATEGORY ===== */
+    .cat-block { margin-bottom: 2.5rem; }
+    .cat-hd {
+      display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem;
+    }
+    .cat-icon { font-size: 1.5rem; }
+    .cat-title { font-size: 1.05rem; font-weight: 800; color: var(--rose); }
+    .cat-count {
+      margin-left: auto; font-size: .72rem; font-weight: 700;
+      color: var(--muted); background: var(--rose-bg);
+      padding: .1rem .6rem; border-radius: 20px;
+    }
+
+    /* ===== CHECKLIST ITEMS ===== */
+    .ci-list { display: flex; flex-direction: column; gap: .45rem; }
+    .ci {
+      display: flex; align-items: flex-start; gap: .9rem;
+      padding: .75rem 1rem; background: white;
+      border: 1px solid var(--border); border-radius: 12px;
+      cursor: pointer; transition: background .15s, opacity .2s;
+    }
+    .ci:hover { background: var(--rose-bg); }
+    .ci.done { background: #fdf4f7; opacity: .5; }
+    .ci.done .ci-label { text-decoration: line-through; color: var(--muted); }
+    .ci-cb {
+      width: 22px; height: 22px; flex-shrink: 0; margin-top: .1rem;
+      border: 2px solid var(--border); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; color: white; transition: all .2s;
+    }
+    .ci.done .ci-cb { background: var(--rose); border-color: var(--rose); }
+    .ci-check { display: none; }
+    .ci.done .ci-check { display: block; }
+    .ci-label { flex: 1; font-size: .9rem; line-height: 1.55; }
+    .ci-sub { display: block; font-size: .76rem; color: var(--muted); margin-top: .15rem; }
+    .ci-tag {
+      flex-shrink: 0; font-size: .68rem; font-weight: 700;
+      padding: .1rem .5rem; border-radius: 20px; margin-left: auto;
+      align-self: center;
+    }
+    .tag-mama { background: #fce4ed; color: #b04a72; }
+    .tag-papa { background: #e8e4f5; color: #6858a8; }
+    .tag-both { background: #f5ece4; color: #8a5838; }
+    .tag-home { background: #f5e4f0; color: #8a4878; }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-wrap { margin-bottom: 2rem; }
+    .progress-label {
+      display: flex; justify-content: space-between;
+      font-size: .8rem; color: var(--muted); margin-bottom: .4rem;
+    }
+    .progress-bar {
+      height: 8px; background: var(--border); border-radius: 8px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: linear-gradient(90deg, var(--rose-mid), var(--rose));
+      border-radius: 8px; transition: width .4s ease;
+    }
+
+    /* ===== ADD ITEM ===== */
+    .add-block {
+      background: white; border: 2px dashed var(--border);
+      border-radius: 14px; padding: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .add-block h3 { font-size: .9rem; font-weight: 700; color: var(--muted); margin-bottom: .8rem; }
+    .add-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .add-input {
+      flex: 1; min-width: 200px; padding: .55rem .8rem;
+      border: 1.5px solid var(--border); border-radius: 10px;
+      font-family: inherit; font-size: .88rem; outline: none;
+      transition: border-color .2s;
+    }
+    .add-input:focus { border-color: var(--rose); }
+    .add-select {
+      padding: .55rem .8rem; border: 1.5px solid var(--border); border-radius: 10px;
+      font-family: inherit; font-size: .88rem; background: white;
+      color: var(--text); outline: none; cursor: pointer;
+    }
+    .add-btn {
+      padding: .55rem 1.1rem; background: var(--rose); color: white;
+      border: none; border-radius: 10px; font-family: inherit;
+      font-size: .88rem; font-weight: 700; cursor: pointer;
+      transition: background .2s;
+    }
+    .add-btn:hover { background: var(--rose-mid); }
+
+    footer {
+      background: var(--rose-dark); color: rgba(255,255,255,.6);
+      text-align: center; padding: 1.5rem; font-size: .78rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="pw-screen">
+  <div class="pw-card">
+    <div class="pw-emoji">🍼</div>
+    <p class="pw-title">出産準備リスト</p>
+    <p class="pw-sub">持ち物・部屋・グッズ 準備チェックリスト</p>
+    <input type="password" id="pw-input" class="pw-input" placeholder="••••" maxlength="10"
+           onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="pw-btn" onclick="checkPw()">ひらく</button>
+    <p id="pw-err" class="pw-error">パスワードが違います。もう一度お試しください。</p>
+  </div>
+</div>
+
+<div id="main" style="display:none">
+  <button id="logout-btn" onclick="logout()">ログアウト</button>
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">📅 ロードマップ</a>
+      <a href="prep-list.html" class="nav-link active">🍼 出産準備リスト</a>
+      <a href="memo.html" class="nav-link">📝 メモ帳</a>
+    </nav>
+    <div class="site-tag">家族の出産準備 2027年2月</div>
+    <h1>出産準備リスト</h1>
+    <p>持ち物・部屋・グッズのチェックリスト — タップで完了にできます</p>
+  </header>
+
+  <div class="container">
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>準備の進捗</span>
+        <span id="progress-text">0 / 0 完了</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+
+    <!-- カテゴリー1 -->
+    <div class="cat-block">
+      <div class="cat-hd">
+        <span class="cat-icon">👜</span>
+        <span class="cat-title">入院バッグ（ママ用）</span>
+        <span class="cat-count" id="count-a"></span>
+      </div>
+      <div class="ci-list" id="cat-a">
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa01">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">母子手帳・診察券・健康保険証<span class="ci-sub">かわぐちレディース専用の書類も忘れずに</span></div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa02">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">印鑑（認印）</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa03">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">パジャマ（前開き・授乳口あり）2〜3着<span class="ci-sub">産後は長期入院になることも</span></div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa04">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">授乳ブラ 2〜3枚</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa05">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">産褥ショーツ 3〜5枚<span class="ci-sub">マジックテープタイプが使いやすい</span></div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa06">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">夜用ナプキン・産褥パッド</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa07">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">タオル 2〜3枚（バスタオル・フェイスタオル）</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa08">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">洗面用具・スキンケア・歯ブラシ</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa09">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ヘアゴム・ヘアクリップ（分娩中のため）</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa10">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">スマホ充電器・モバイルバッテリー</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa11">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">軽食・ゼリー飲料・ストロー<span class="ci-sub">陣痛中・深夜の補給用</span></div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa12">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">テニスボール or マッサージグッズ<span class="ci-sub">陣痛時の腰ほぐし用</span></div>
+          <span class="ci-tag tag-papa">パパ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pa13">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">現金（少額）・交通系IC</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- カテゴリー2 -->
+    <div class="cat-block">
+      <div class="cat-hd">
+        <span class="cat-icon">👶</span>
+        <span class="cat-title">入院バッグ（赤ちゃん用）</span>
+        <span class="cat-count" id="count-b"></span>
+      </div>
+      <div class="ci-list" id="cat-b">
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb01">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">コンビ肌着 or 短肌着 2〜3枚（新生児サイズ）</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb02">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ツーウェイオール 2枚</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb03">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">おむつ（新生児サイズ） ひとパック</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb04">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">おしりふき（無香料）</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb05">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ガーゼハンカチ 5〜10枚</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb06">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">おくるみ（おひな巻き用）</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pb07">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label"><strong>チャイルドシート</strong> — 退院日までに設置必須！<span class="ci-sub">自動車での退院に必要。レンタルも可</span></div>
+          <span class="ci-tag tag-papa">パパ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- カテゴリー3 -->
+    <div class="cat-block">
+      <div class="cat-hd">
+        <span class="cat-icon">🏠</span>
+        <span class="cat-title">赤ちゃん部屋・グッズ準備</span>
+        <span class="cat-count" id="count-c"></span>
+      </div>
+      <div class="ci-list" id="cat-c">
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc01">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ベビー布団 or ベビーベッド 準備完了<span class="ci-sub">窒息防止のため柔らかすぎるものは避ける</span></div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc02">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">バウンサー or ハイローチェア 準備</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc03">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">抱っこひも（新生児対応タイプ）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc04">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ベビーバス（シンクにはまるタイプ等）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc05">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">哺乳瓶 2〜3本・消毒グッズ（煮沸 or 薬液）<span class="ci-sub">母乳でも哺乳瓶は保険として準備推奨</span></div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc06">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">体温計（わきの下用・電子式）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc07">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ベビー用爪切り・綿棒（細いもの）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc08">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ベビー用洗濯洗剤（無添加・低刺激）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc09">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ベビー肌着・ロンパース 各5〜7枚（50〜60サイズ中心）</div>
+          <span class="ci-tag tag-home">赤ちゃん</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc10">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">授乳クッション</div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc11">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">搾乳器（手動 or 電動）<span class="ci-sub">職場復帰後や乳腺炎予防にも活躍</span></div>
+          <span class="ci-tag tag-mama">ママ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc12">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">ベビーモニター（音声 or 映像）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- カテゴリー4 -->
+    <div class="cat-block">
+      <div class="cat-hd">
+        <span class="cat-icon">📋</span>
+        <span class="cat-title">手続き・書類準備</span>
+        <span class="cat-count" id="count-d"></span>
+      </div>
+      <div class="ci-list" id="cat-d">
+        <div class="ci" onclick="toggleCheck(this)" data-key="pd01">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">出生届の用紙を病院からもらう（出産後）<span class="ci-sub">出産した病院が記載してくれる部分もある</span></div>
+          <span class="ci-tag tag-papa">パパ</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pd02">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">印鑑（出生届提出用）を準備しておく</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pd03">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">出産育児一時金（50万円）の直接支払制度を病院で確認<span class="ci-sub">かわぐちレディースでの手続き方法を事前確認</span></div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pd04">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">川口市の産後ケア（宿泊型・デイ・訪問）を事前に調べておく<span class="ci-sub">人気の枠はすぐ埋まる。退院前に問い合わせ</span></div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pd05">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">瑞生くんの入院中の預け先（じいじ・ぱあぱ）の日程を確定する</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pd06">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">LINEグループ or 連絡方法を家族で決めておく（緊急連絡用）</div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 自由追加エリア -->
+    <div class="cat-block">
+      <div class="cat-hd">
+        <span class="cat-icon">✍️</span>
+        <span class="cat-title">その他・追加アイテム</span>
+        <span class="cat-count" id="count-e"></span>
+      </div>
+      <div class="ci-list" id="cat-e">
+        <!-- Firebase から動的に追加されたアイテムが入る -->
+      </div>
+    </div>
+
+    <div class="add-block">
+      <h3>＋ アイテムを追加する</h3>
+      <div class="add-row">
+        <input type="text" id="new-item-text" class="add-input" placeholder="例：ドーナツ枕">
+        <select id="new-item-cat" class="add-select">
+          <option value="a">入院バッグ（ママ）</option>
+          <option value="b">入院バッグ（赤ちゃん）</option>
+          <option value="c">部屋・グッズ準備</option>
+          <option value="d">手続き・書類</option>
+          <option value="e" selected>その他</option>
+        </select>
+        <button class="add-btn" onclick="addItem()">追加</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>出産準備リスト 2027年2月予定</p>
+  </footer>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, onValue, set, push, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+  const app = initializeApp({ databaseURL: "https://nasu-travel-default-rtdb.firebaseio.com" });
+  const db = getDatabase(app);
+
+  window._fbReady = false;
+
+  window.initFirebase = function () {
+    if (window._fbReady) return;
+    window._fbReady = true;
+
+    document.querySelectorAll('.ci[data-key]').forEach(item => {
+      const key = item.dataset.key;
+      onValue(ref(db, 'ikukyu2026/prep/' + key), snap => {
+        item.classList.toggle('done', snap.val() === true);
+        updateProgress();
+        updateCounts();
+      });
+    });
+
+    // Load custom items
+    onValue(ref(db, 'ikukyu2026/prep_custom'), snap => {
+      const val = snap.val();
+      if (!val) return;
+      const container = document.getElementById('cat-e');
+      // Clear existing custom items
+      container.querySelectorAll('.ci[data-key^="pe_"]').forEach(el => el.remove());
+      Object.entries(val).forEach(([k, v]) => {
+        if (!document.querySelector(`.ci[data-key="pe_${k}"]`)) {
+          const div = createItem('pe_' + k, v.text || v);
+          container.appendChild(div);
+          onValue(ref(db, 'ikukyu2026/prep/pe_' + k), s => {
+            div.classList.toggle('done', s.val() === true);
+            updateProgress();
+            updateCounts();
+          });
+        }
+      });
+    });
+  };
+
+  window.setCheck = function (key, value) {
+    set(ref(db, 'ikukyu2026/prep/' + key), value);
+  };
+
+  window._addItem = function(text) {
+    push(ref(db, 'ikukyu2026/prep_custom'), { text });
+  };
+
+  function createItem(key, text) {
+    const div = document.createElement('div');
+    div.className = 'ci';
+    div.dataset.key = key;
+    div.onclick = () => toggleCheck(div);
+    div.innerHTML = `<div class="ci-cb"><span class="ci-check">✓</span></div><div class="ci-label">${text}</div>`;
+    return div;
+  }
+</script>
+
+<script>
+  const AUTH_KEY = 'ikukyu2026_auth';
+
+  function checkPw() {
+    if (document.getElementById('pw-input').value === '1111') {
+      localStorage.setItem(AUTH_KEY, 'ok');
+      showMain();
+    } else {
+      document.getElementById('pw-err').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  function showMain() {
+    document.getElementById('pw-screen').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    if (window.initFirebase) window.initFirebase();
+    else setTimeout(() => { if (window.initFirebase) window.initFirebase(); }, 800);
+  }
+
+  function logout() {
+    localStorage.removeItem(AUTH_KEY);
+    location.reload();
+  }
+
+  function toggleCheck(item) {
+    const key = item.dataset.key;
+    const now = item.classList.contains('done');
+    if (window.setCheck) window.setCheck(key, !now);
+    else { item.classList.toggle('done'); updateProgress(); updateCounts(); }
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.ci[data-key]');
+    const done = document.querySelectorAll('.ci[data-key].done');
+    const pct = all.length ? Math.round(done.length / all.length * 100) : 0;
+    document.getElementById('progress-text').textContent = `${done.length} / ${all.length} 完了`;
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  function updateCounts() {
+    ['a','b','c','d','e'].forEach(c => {
+      const el = document.getElementById('cat-' + c);
+      if (!el) return;
+      const all = el.querySelectorAll('.ci[data-key]').length;
+      const done = el.querySelectorAll('.ci[data-key].done').length;
+      const cnt = document.getElementById('count-' + c);
+      if (cnt) cnt.textContent = `${done}/${all}`;
+    });
+  }
+
+  function addItem() {
+    const text = document.getElementById('new-item-text').value.trim();
+    if (!text) return;
+    if (window._addItem) window._addItem(text);
+    document.getElementById('new-item-text').value = '';
+  }
+
+  document.getElementById('new-item-text')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') addItem();
+  });
+
+  if (localStorage.getItem(AUTH_KEY) === 'ok') showMain();
+</script>
+</body>
+</html>
