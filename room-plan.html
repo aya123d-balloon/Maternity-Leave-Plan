@@ -47,8 +47,6 @@
     .pw-btn:hover { background: var(--rose-mid); }
     .pw-error { margin-top: .75rem; font-size: .85rem; color: var(--danger); display: none; }
 
-    /* ===== LOGOUT ===== */
-    #logout-btn { position: fixed; top: 12px; right: 14px; z-index: 100; background: rgba(255,255,255,.15); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.8); font-size: .72rem; font-family: inherit; padding: .3rem .75rem; border-radius: 20px; cursor: pointer; }
 
     /* ===== HEADER ===== */
     .site-header { background: linear-gradient(150deg, #e8889f 0%, var(--rose) 55%, var(--rose-dark) 100%); color: white; padding: 2rem 1.5rem 2rem; text-align: center; }
@@ -143,19 +141,22 @@
 <body>
 
 <div id="pw-screen">
-  <div class="pw-card">
-    <div class="pw-emoji">🏠</div>
+  <div id="pw-screen-init" class="pw-card">
+    <img src="pw-normal.png" style="width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:12px;">
     <p class="pw-title">お部屋片付け計画</p>
     <p class="pw-sub">3階建て整理・部屋割りロードマップ</p>
     <input type="password" id="pw-input" class="pw-input" placeholder="••••" maxlength="10" onkeydown="if(event.key==='Enter')checkPw()">
     <button class="pw-btn" onclick="checkPw()">ひらく</button>
-    <p id="pw-err" class="pw-error">パスワードが違います。</p>
+  </div>
+  <div id="pw-screen-error" class="pw-card" style="display:none">
+    <img src="pw-error.png" style="width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:12px;">
+    <p class="pw-title" style="color:var(--danger)">パスワードが違います</p>
+    <p class="pw-sub">もう一度確認してください</p>
+    <button class="pw-btn" onclick="goBack()" style="background:var(--muted);margin-top:.4rem">戻る</button>
   </div>
 </div>
 
 <div id="main" style="display:none">
-  <button id="logout-btn" onclick="logout()">ログアウト</button>
-
   <header class="site-header">
     <h1>お部屋片付け計画</h1>
     <p>3階建て 整理ロードマップ＆部屋割り案</p>
@@ -514,7 +515,7 @@
 
   </div>
 
-  <footer><p>お部屋片付け計画 — 出産前に「回る家」を完成させよう</p></footer>
+  <footer><p>お部屋片付け計画 — 出産前に「回る家」を完成させよう</p><p style="margin-top:.6rem"><button onclick="logout()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);font-size:.72rem;font-family:inherit;padding:.3rem .9rem;border-radius:20px;cursor:pointer;">ログアウト</button></p></footer>
 </div>
 
 <script type="module">
@@ -545,9 +546,14 @@
       localStorage.setItem(AUTH_KEY, 'ok');
       showMain();
     } else {
-      document.getElementById('pw-err').style.display = 'block';
-      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-screen-init').style.display = 'none';
+      document.getElementById('pw-screen-error').style.display = 'block';
     }
+  }
+  function goBack() {
+    document.getElementById('pw-screen-error').style.display = 'none';
+    document.getElementById('pw-screen-init').style.display = 'block';
+    document.getElementById('pw-input').value = '';
   }
   function showMain() {
     document.getElementById('pw-screen').style.display = 'none';
