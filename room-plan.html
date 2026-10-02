@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お部屋片付け計画</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAIAGBgAAAEAIACICQAAJgAAAEBAAAABACAAKEIAAK4JAAAoAAAAGAAAADAAAAABACAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQENhD3SBmXSSprrMoLbI7KW9zvqnv9H+p7/R/qW9z/mftcjrkqa6y3SCmnRAQmAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAe4mgjbfS4vnP8Pz/0vP//9P0///U9f//1PX//9P0///S8///z/D8/7jT4vl7iqGNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnbPG79P0///S8///0vP//9L0///G5PL/wt/t/9L0///S8///0vP//9P0//+ds8XwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApb3P/tP0///S8///0vP//8/w/P+ds8b/lKi8/83t+v/S8///0vP//9P0//+lvc7+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAornL+dP0///S8///0vP//9P0//+40+P/r8jZ/9P0///S8///0vP//9P0//+jusz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAn7XH79Lz///S8///0vP//9Hy/v+rxNX/ornL/9Dx/f/S8///0vP//9Lz//+ftcfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAm7DD5tLz///S8///0vP//9Hx/f+mvs//nbPF/8/v/P/S8///0vP//9Lz//+bsMPnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAl6u/29Dx/v/R8///0fP//9P1//+61uX/sMvb/9P1///R8///0fP//9Dx/v+Xq7/cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlqe60Nnz/P/f9v//4ff//+D0/P+ot8b/nqu8/93x+v/i+P//3/b//9nz/P+Wp7rRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoqa2xPf5+//+///////////////b3OL/ztDX/////////////v////f6+/+ip7bFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnqKxuPj4+f////////////7+///Mztb/wMLM//39/v////////////j4+f+forG5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZytrPX29/////////////z8/f/HydL/vb/K//r6+/////////////b29/+Zna2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkpannfLz9f////////////////////////////////////////////Pz9f+SlqidAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfYGWbNrc4frt7vD/4+Po/97e5f/c3OP/3dzj/9/e5f/k5On/7u/x/9vc4vp9gZZtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXF98OaaWt+rNrdX/0q3a/9iv3v/bsOD/27Dg/9eu3v/Srdr/zK3V/6WWtutcX3s6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbmmKVNqs4Pf/xv///8b////G////xv///8b////G////xv///8b//9ut4PdvaotUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX2B+Ocmi0uz3vvf/7rnw/+m27P/nter/57Xq/+q27P/vufD/97/3/8mi0uxgYX86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALkBYBn1zln2zp8H7ysLU/83H1v/Pytj/zsrY/8zH1v/KwtT/r6O/+H1ylng0RFwHAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAE1SbzVdZYDjscvb/9T2///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9T2//+yzNz/XWaA401SbzYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNU2+ShJSq/9Hy/v/S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///T9f//0vT//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0fL+/4OUqv9OU2+WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVFp21Ka+z//U9v//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///R8v7/u9fm/8rp9v/S9P//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9T2//+mvs//U1p21wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFpiffK30uH/1PX//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///T9f//zu77/3eEnP+vydn/1ff//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///U9f//ttLh/1piffQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeZ4H8vNno/9P1///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///R8v7/wd/t/7XQ4P9rdo//m7HD/8Dd6//O7vv/0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0/X//7vY5v9dZYD+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXmeB/rzZ6P/T9f//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///T9P//yun2/4CQpv9qdo7/WF96/2RuiP9zgJj/utbl/9P1///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9P1//+82Of/XWaA/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFxkf/m51eT/0/X//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Hy/v/H5vP/vtvp/256kv+huMr/xuXy/8/v/P/S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///T9f//utbl/1xlf/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZYXzytdDg/9T1///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0/T//83t+f9xfpb/rMXW/9X3///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///1PX//7fS4f9aYn3xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAV1566bHL2//U9f//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///M7Pj/cX6W/6vE1f/U9f//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9T1//+yzNz/WF966AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFVcd96sxdb/1PX//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///zOz4/3F+lv+rxNX/1PX//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///U9f//rcbX/1VceOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABTWnXUp7/Q/9T2///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///1Pb//87u+/9yfpb/rcbX/9b4///T9P//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///1Pb//6jA0f9UWnbWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUlh0yKK5y//U9v//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///z+/8/6vE1f+bscP/ZW+I/4iZr/+mvs//yOb0/9P0///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9T2//+jusz/Ulh0zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBWcryds8X/1Pb//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//8zr+P+MnrP/eYif/1xkf/9ue5P/f4+l/73a6P/T9P//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///U9v//nbPG/1BWcr8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPVXGwl6y//9T2///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0fL+/8vq9/9xfpb/qsPU/9L0///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///1Pb//5itwP9PVXGzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATlRwpZKmuv/U9f//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9L0///M7Pj/cX6W/6zF1f/V9v//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9T1//+Sprr/TlRwpgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE1Sb5iNn7T/0/X//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///zOz4/3F+lv+rxNX/1PX//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///U9f//jZ+0/01Tb5oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNUm6Mh5mu/9P0///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//8zs+P9xfpb/q8TV/9T2///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0/T//4iZr/9NUm6NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATFFtf4KSqP/S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9P0///M7Pj/cX6W/6zF1f/V9v//0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz///S8///0vP//9Lz//+Dk6n/TFFugAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEtQbXJ9jKP+0PL+/9Hz///R8///0vP//9Lz///T8///1PP//9X0///W9P//1/X//9Ht+f+Up7v/fo6l/11lgP9zgZn/iJqv/8Pe6//Y9f//1fT//9X0///U8///0/P//9Lz///S8///0fP//9Hz///Q8v7/fY2j/ktQbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABLUG1meoed/Nrz/P/h9///5vj//+r5///u+v//8fv///T8///2/f//9/3///n+///0+Pr/wMLM/6yuu/9pbob/lJep/7W3w//o7PD/+f7///f9///2/f//9Pz///H7///u+v//6vn//+b4///h9///2vP8/3uHnvxLUG1nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASU9sW36DmPn3+fr////////////////////////////////////////////////////////////5+vv/fYGW/83P1/////////////////////////////////////////////////////////////j5+/9/hJn5SU9sXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIT2xPen6U9vf3+P///////////////////////////////////////////////////////////9fX+P98gZb/y83V////////////////////////////////////////////////////////////9/f4/3p/lPZIT2xPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIT2xFdHmP8vP09v////////////////////////////////////////////////////////////f3+P98gZb/y83V////////////////////////////////////////////////////////////9PT2/3V5kPNITmxGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASE9sO290i+7v8PL////////////////////////////////////////////////////////////3+Pn/fYGW/8zN1v////////////////////////////////////////////////////////////Dw8/9vdIvuSE5sOwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEhPbDFqb4fp6+zv///////////////////////////////////////////////////////29vj/6eru/3l9k//Bw83/9/f4//39/v/////////////////////////////////////////////////r7O//anCH6UhPbDIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIT2soZmuE4+bn6//////////////////////////////////////////////////19ff/kpao/3V6kP9bYHv/bHGJ/4KGmv/f4OX/////////////////////////////////////////////////5+fr/2ZrhONIT2wpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASU9sIGJngdzh4uf//////////////////////////////////////////////////Pz9/9/h5v/P0dn/cHWM/66wvf/b3OL/9vb4/////////////////////////////////////////////////+Hi5/9iZ4HdSU9sIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAElQbRpeZH7V293i/////////////////////////////////////////////////////////////Pz9/6Cjsv/b3OL////////////////////////////////////////////////////////////c3eP/X2R+1klQbRsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKUG0UW2F7ztXX3v/////////////////////////////////////////////////////////////////6+vv//f3+////////////////////////////////////////////////////////////1tje/1the85KUG0UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS1FuDlddeMTNz9f//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////87Q2P9YXXjDSlFuDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE1TcAVSWHSvvb/K//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////++wMv/Ulh0rktSbwUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MATFJvhJ6hsf//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////nqGx/0xSb4ZRV3MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAEpQbkZyd4728PDz//////////////////v8/P/19vf/7+/y/+jp7P/j5Oj/3uDk/9nb4P/V2N7/19nf/9ja3//Z2+D/3t/k/+Tl6f/q6+7/8PHz//j4+f/9/f7/////////////////8PDz/3N4j/ZKUG5HUVdzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFXcwBNVHANVFp1uKiruf/N0Nf/q6+8/5aaqv+Gip7/fH+W/3h5kv93dpL/eHWS/3p1lP99dpb/fXWW/352l/9+dpf/e3WV/3l0k/94dZL/eHeS/3l6k/+Bg5n/jJCj/5ufr/+wtL//0NLZ/6iruf9UWnW4TVRwDVFXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MAT1VxAE9VcWtaXnr/fHOV/5eDq/+ukL3/wJvL/86l1v/breH/5bPp/+u37f/vuvH/87z0//S99P/0vfT/9L30//K88//uufD/6rbs/+Sy5//Zq9//zKPV/72ayf+pjbn/kn+m/3tzlP9aXnr/T1Vxbk9VcQBQVnIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAExUbxFXW3jBrZG8//S99f//xP7//8b////G////xv///8X////F/v//xf7//8X+///E/v//xP7//8T+///E/v//xP7//8X+///F/v//xf7//8X////G////xv///8b////E/f/0vfT/rZC8/1Zad8NNVHATUVdzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFXcwBIUmwxbWiJ7+659P//xf///8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8X//+659P9taYnvSVJsMlFXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MASFJsMWxoie7tue///8X+///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///F/v/vuvD/b2qL7khRbDFRV3MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAElSbSRkY4Lk5bTo///F/v//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xf7/5rXq/2ZkhONIUWwiUVdzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFXcwBKU24SW1190NSp2///xv///8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8T9///E/f//xP3//8b//9aq3P9bXnvQSlJtElFXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MATFRvAlBWcqGrj7r//8b////F/v//xf///8b////G////xf///8X+//7E/P/9w/v//ML7//vB+v/6wfn/+8L6//zC+//9w/z//8T9///F/v//xf///8b////G////xf///8X+///G//+skLv/UFZyo0tUbwJRV3MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAFFXcwBNVHBHZ2WF78Oezf/ks+j/1anc/8Odzf+wkr7/o4m0/5iDrP+PfaT/iXqf/4d5nv+FeJz/g3eb/4V4nP+Iep//i3uh/5J/pv+bha7/pYu2/7SUwv/GoND/2Kve/+a06f/Dn87/aGWF8E1UcElRV3MAUVdzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFJYdABRV3MAVlp3Ak5VcVtYW3nRZWWD/Xp8lP+Gip7/kZWm/5+jsv+ssLz/s7fC/7q9x//Aw8z/w8bP/8PGz//Aw8z/v8LL/7m9x/+wtMD/qKy5/56isf+Slqf/homd/3R2j/9jY4H6WFx5zE5VcV5UWXYDUVdzAFFXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAFFXcwBQV3IASVBtSG50i/fo6ez//Pz8//////////////////////////////////////////////////////////////////////////////////z8/f/V1t3/XmN94kpRbStQVnIAUVdzAFFXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MAUVdzAEhPbER3fJL49vb4////////////////////////////////////////////////////////////////////////////////////////////5+fr/2ZrhORITmwiUVdzAFFXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFXcwBKUG0taG2F6ufo7P///////////////////////////////////////////////////////////////////////////////////////////8/R2f9ZX3rPS1FuE1FXcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MATVNwCFJYdK6nqrj///////////////////////////////////////////////////////////////////////////////////////r6+/+Pk6X/TVRwh1NYdABRV3MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAFBWcgBNU3A3XWN93ri7xv/8/P3///////////////////////////////////////////////////////////////////////b2+P+ipbT/Vlx3xU5UcB5RV3MAUVdzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFYdABSWHQATFJvAE1TcENZX3rUmJys/+Xm6v///////////////////////////////////////////////////////////9na4P+Hi57/U1l1vU1UcCxPVXEAUVdzAFJYdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVdzAFFXcwBOVHEATVNwJk9VcZprcIjxr7K///Ly9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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRV3MASU9tV4KGm/36+/v/////////////////7u7x/2xxie9JT2wyUVdzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #c96b8a;
+      --rose-dark: #a05270;
+      --rose-mid: #dc9ab5;
+      --rose-bg: #fceef4;
+      --cocoa: #a07060;
+      --cocoa-dark: #7d5448;
+      --cocoa-bg: #f5ede8;
+      --lavender: #9b88c4;
+      --lavender-bg: #f0edf8;
+      --gold: #b08040;
+      --gold-bg: #fdf5e0;
+      --green: #5a9e7a;
+      --green-bg: #eaf5ef;
+      --bg: #fdf8f9;
+      --white: #ffffff;
+      --border: #e8d0d8;
+      --text: #3d2530;
+      --muted: #9a7080;
+      --danger: #c8392b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'M PLUS Rounded 1c', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; }
+
+    /* ===== PASSWORD ===== */
+    #pw-screen {
+      position: fixed; inset: 0; z-index: 9999;
+      background: linear-gradient(150deg, #e8889f 0%, var(--rose) 50%, var(--rose-dark) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pw-card { background: var(--white); border-radius: 24px; padding: 3rem 2.5rem; text-align: center; width: min(420px, 92vw); box-shadow: 0 24px 64px rgba(160,82,112,.35); }
+    .pw-emoji { font-size: 3.8rem; margin-bottom: 1rem; line-height: 1; }
+    .pw-title { font-size: 1.35rem; font-weight: 800; color: var(--rose); margin-bottom: .25rem; }
+    .pw-sub { font-size: .85rem; color: var(--muted); margin-bottom: 2rem; }
+    .pw-input { width: 100%; padding: .8rem 1rem; font-size: 1.4rem; font-family: inherit; text-align: center; letter-spacing: .4em; border: 2px solid var(--border); border-radius: 12px; outline: none; transition: border-color .2s; }
+    .pw-input:focus { border-color: var(--rose); box-shadow: 0 0 0 4px rgba(201,107,138,.15); }
+    .pw-btn { margin-top: .9rem; width: 100%; padding: .9rem; font-size: 1rem; font-weight: 700; font-family: inherit; background: var(--rose); color: white; border: none; border-radius: 12px; cursor: pointer; }
+    .pw-btn:hover { background: var(--rose-mid); }
+    .pw-error { margin-top: .75rem; font-size: .85rem; color: var(--danger); display: none; }
+
+    /* ===== LOGOUT ===== */
+    #logout-btn { position: fixed; top: 12px; right: 14px; z-index: 100; background: rgba(255,255,255,.15); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.8); font-size: .72rem; font-family: inherit; padding: .3rem .75rem; border-radius: 20px; cursor: pointer; }
+
+    /* ===== HEADER ===== */
+    .site-header { background: linear-gradient(150deg, #e8889f 0%, var(--rose) 55%, var(--rose-dark) 100%); color: white; padding: 2rem 1.5rem 2rem; text-align: center; }
+    .site-nav { display: flex; justify-content: center; gap: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .nav-link { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.75); text-decoration: none; background: rgba(255,255,255,.15); padding: .25rem .8rem; border-radius: 20px; border: 1px solid rgba(255,255,255,.25); transition: all .2s; }
+    .nav-link:hover { background: rgba(255,255,255,.25); color: white; }
+    .nav-link.active { background: rgba(255,255,255,.3); color: white; }
+    .site-header h1 { font-size: clamp(1.2rem, 4vw, 1.75rem); font-weight: 800; line-height: 1.4; }
+    .site-header p { font-size: .85rem; opacity: .8; margin-top: .4rem; }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+
+    /* ===== SECTIONS ===== */
+    .section { margin-bottom: 2.5rem; }
+    .section-hd { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 2px solid var(--border); }
+    .section-icon { font-size: 1.3rem; }
+    .section-title { font-size: 1rem; font-weight: 800; color: var(--cocoa); flex: 1; }
+
+    /* ===== ROOM CARDS ===== */
+    .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .8rem; margin-bottom: 1rem; }
+    .room-card { background: white; border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; }
+    .room-card-hd { font-size: .78rem; font-weight: 800; color: var(--muted); margin-bottom: .5rem; text-transform: uppercase; letter-spacing: .05em; }
+    .room-card-name { font-size: .95rem; font-weight: 800; color: var(--text); margin-bottom: .5rem; }
+    .room-card-body { font-size: .78rem; color: var(--muted); line-height: 1.65; }
+    .room-card.highlight { border-color: var(--rose); background: var(--rose-bg); }
+    .room-card.highlight .room-card-name { color: var(--rose-dark); }
+
+    /* ===== PHASE BLOCKS ===== */
+    .phase-block { background: white; border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem; }
+    .phase-hd { display: flex; align-items: center; gap: .75rem; padding: .85rem 1.1rem; border-bottom: 1px solid var(--border); }
+    .phase-badge { font-size: .7rem; font-weight: 800; padding: .2rem .7rem; border-radius: 20px; flex-shrink: 0; }
+    .phase-badge.p1 { background: #fce4ed; color: #b04a72; }
+    .phase-badge.p2 { background: #e8e4f5; color: #6858a8; }
+    .phase-badge.p3 { background: #f5ece4; color: #8a5838; }
+    .phase-badge.p4 { background: var(--green-bg); color: var(--green); }
+    .phase-hd-title { font-size: .88rem; font-weight: 800; color: var(--text); flex: 1; }
+    .phase-period { font-size: .72rem; color: var(--muted); }
+    .phase-body { padding: .5rem 0; }
+
+    /* ===== CHECKLIST ITEMS ===== */
+    .ci { display: flex; align-items: flex-start; gap: .9rem; padding: .65rem 1.1rem; cursor: pointer; transition: background .15s; }
+    .ci:hover { background: var(--rose-bg); }
+    .ci.done { opacity: .45; }
+    .ci.done .ci-label { text-decoration: line-through; color: var(--muted); }
+    .ci-cb { width: 20px; height: 20px; flex-shrink: 0; margin-top: .15rem; border: 2px solid var(--border); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: .8rem; color: white; transition: all .2s; }
+    .ci.done .ci-cb { background: var(--rose); border-color: var(--rose); }
+    .ci-check { display: none; }
+    .ci.done .ci-check { display: block; }
+    .ci-label { flex: 1; font-size: .85rem; line-height: 1.6; }
+    .ci-sub { display: block; font-size: .74rem; color: var(--muted); margin-top: .1rem; }
+    .badge-papa { display: inline-block; font-size: .65rem; font-weight: 700; background: #e8e4f5; color: #6858a8; padding: .05rem .45rem; border-radius: 20px; margin-right: .3rem; vertical-align: middle; }
+    .badge-mama { display: inline-block; font-size: .65rem; font-weight: 700; background: #fce4ed; color: #b04a72; padding: .05rem .45rem; border-radius: 20px; margin-right: .3rem; vertical-align: middle; }
+    .badge-both { display: inline-block; font-size: .65rem; font-weight: 700; background: var(--cocoa-bg); color: var(--cocoa-dark); padding: .05rem .45rem; border-radius: 20px; margin-right: .3rem; vertical-align: middle; }
+    .warn { color: var(--danger); font-weight: 700; }
+
+    /* ===== INFO CARDS ===== */
+    .info-card { background: var(--gold-bg); border: 1.5px solid #e8d090; border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 1rem; font-size: .82rem; line-height: 1.8; }
+    .info-card h4 { font-size: .85rem; font-weight: 800; color: var(--gold); margin-bottom: .4rem; }
+
+    /* ===== FLOOR PLAN ===== */
+    .floorplan-wrap { text-align: center; margin-bottom: 1.2rem; }
+    .floorplan-img { max-width: 100%; border-radius: 12px; border: 1.5px solid var(--border); box-shadow: 0 2px 12px rgba(160,82,112,.1); }
+    .point-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .75rem; margin-bottom: 1.2rem; }
+    .point-item { background: white; border: 1.5px solid var(--border); border-radius: 12px; padding: .85rem 1rem; }
+    .point-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: var(--rose); color: white; border-radius: 50%; font-size: .7rem; font-weight: 800; flex-shrink: 0; }
+    .point-head { font-size: .85rem; font-weight: 800; color: var(--text); display: flex; align-items: flex-start; gap: .45rem; margin-bottom: .3rem; }
+    .point-body { font-size: .76rem; color: var(--muted); line-height: 1.7; padding-left: 1.7rem; }
+    .floor-stack { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1rem; }
+    .floor-item { background: white; border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .floor-item-hd { background: var(--cocoa-bg); padding: .55rem 1rem; font-size: .82rem; font-weight: 800; color: var(--cocoa-dark); }
+    .floor-item-body { padding: .7rem 1rem; font-size: .79rem; line-height: 1.75; color: var(--text); }
+    .floor-item-body ul { padding-left: 1.1rem; }
+    .floor-item-body li { margin-bottom: .2rem; }
+    .fl1 .floor-item-hd { background: #f0ede8; color: #6b4f3a; }
+    .fl2 .floor-item-hd { background: var(--lavender-bg); color: var(--lavender); }
+    .fl3 .floor-item-hd { background: var(--rose-bg); color: var(--rose-dark); }
+
+    /* ===== TIMELINE TABLE ===== */
+    .tl-wrap { overflow-x: auto; margin-bottom: 1rem; }
+    table.tl { width: 100%; border-collapse: collapse; font-size: .78rem; }
+    table.tl th { background: var(--cocoa-bg); color: var(--cocoa-dark); font-weight: 800; padding: .55rem .8rem; border: 1px solid var(--border); white-space: nowrap; text-align: left; }
+    table.tl td { padding: .5rem .8rem; border: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+    table.tl tr:nth-child(even) td { background: #fdf5f8; }
+    .tl-period { font-weight: 800; color: var(--rose-dark); white-space: nowrap; }
+
+    footer { background: var(--rose-dark); color: rgba(255,255,255,.6); text-align: center; padding: 1.5rem; font-size: .78rem; }
+  </style>
+</head>
+<body>
+
+<div id="pw-screen">
+  <div class="pw-card">
+    <div class="pw-emoji">🏠</div>
+    <p class="pw-title">お部屋片付け計画</p>
+    <p class="pw-sub">3階建て整理・部屋割りロードマップ</p>
+    <input type="password" id="pw-input" class="pw-input" placeholder="••••" maxlength="10" onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="pw-btn" onclick="checkPw()">ひらく</button>
+    <p id="pw-err" class="pw-error">パスワードが違います。</p>
+  </div>
+</div>
+
+<div id="main" style="display:none">
+  <button id="logout-btn" onclick="logout()">ログアウト</button>
+
+  <header class="site-header">
+    <h1>お部屋片付け計画</h1>
+    <p>3階建て 整理ロードマップ＆部屋割り案</p>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">📅 ロードマップ</a>
+      <a href="prep-list.html" class="nav-link">🍼 出産準備リスト</a>
+      <a href="room-plan.html" class="nav-link active">🏠 部屋片付け</a>
+      <a href="memo.html" class="nav-link">📝 メモ帳</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- ===== 目標配置 ===== -->
+    <div class="section">
+      <div class="section-hd">
+        <span class="section-icon">🗺️</span>
+        <span class="section-title">目標：各フロアの役割</span>
+      </div>
+      <div class="room-grid">
+        <div class="room-card">
+          <div class="room-card-hd">1階</div>
+          <div class="room-card-name">ファミリークローゼット＋収納</div>
+          <div class="room-card-body">
+            家族全員のデイリー服（下着・パジャマ・普段着）<br>
+            アウトドア用品（壁際に縦積み）<br>
+            第2子用保留ボックス・大物育児用品<br>
+            <em>※エアコンなし。着替えで数分のみ滞在→問題なし</em>
+          </div>
+        </div>
+        <div class="room-card">
+          <div class="room-card-hd">2階</div>
+          <div class="room-card-name">リビング（くつろぎ＋遊び場）</div>
+          <div class="room-card-body">
+            服を完全撤去 → ソファ・床に服ゼロ<br>
+            ねんね期のベビーベッド置き場を確保<br>
+            赤ちゃんが口に入れても大丈夫なおもちゃのみ<br>
+            ベビーサークル導入（ハイハイ期〜）
+          </div>
+        </div>
+        <div class="room-card">
+          <div class="room-card-hd">3階 寝室（6畳）</div>
+          <div class="room-card-name">パパ＆瑞生の寝室</div>
+          <div class="room-card-body">
+            ベッド2台（動かせない）<br>
+            クローゼット：礼服・スーツ・オフシーズン服のみ<br>
+            床の一角：瑞生の細かいおもちゃコーナー<br>
+            （トミカ・プラレール・ブロック等）
+          </div>
+        </div>
+        <div class="room-card highlight">
+          <div class="room-card-hd">3階 Cの部屋（6畳）</div>
+          <div class="room-card-name">ママ＆赤ちゃんの寝室</div>
+          <div class="room-card-body">
+            マットレス直置き＋布団を並べるスペース確保<br>
+            手芸用品はフタ付きボックスにまとめて隅へ<br>
+            内鍵あり → 昼寝中の安全確保<br>
+            おもちゃは一切置かない
+          </div>
+        </div>
+        <div class="room-card">
+          <div class="room-card-hd">3階 書斎（4畳）</div>
+          <div class="room-card-name">パパの書斎（ノータッチ）</div>
+          <div class="room-card-body">
+            現状維持<br>
+            プリンターをここに移動できるか相談<br>
+            <em>約8〜9年後：瑞生の個室候補として検討</em>
+          </div>
+        </div>
+        <div class="room-card">
+          <div class="room-card-hd">玄関</div>
+          <div class="room-card-name">外遊び一軍のみ</div>
+          <div class="room-card-body">
+            今よく使う外遊び用品だけ玄関に<br>
+            たまにしか使わないアウトドア用品は1階居室へ
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 間取り分析 ===== -->
+    <div class="section">
+      <div class="section-hd">
+        <span class="section-icon">📐</span>
+        <span class="section-title">間取りで確認！この家だからこその動線</span>
+      </div>
+
+      <div class="floorplan-wrap">
+        <img src="madori.png" alt="3階建て間取り図" class="floorplan-img">
+      </div>
+
+      <div class="point-grid">
+        <div class="point-item">
+          <div class="point-head">
+            <span class="point-num">1</span>
+            お風呂→1階居室の扉がほぼ対面
+          </div>
+          <div class="point-body">ファミリークローゼット化で着替え動線が<strong>歩数3歩</strong>で完結。濡れたままの移動ゼロ。</div>
+        </div>
+        <div class="point-item">
+          <div class="point-head">
+            <span class="point-num">2</span>
+            玄関→階段の動線上に1階居室がある
+          </div>
+          <div class="point-body">帰宅後の荷物・服が2階リビングに流れ込みにくい構造。1階で受け止められる。</div>
+        </div>
+        <div class="point-item">
+          <div class="point-head">
+            <span class="point-num">3</span>
+            階段下収納（玄関横）がある
+          </div>
+          <div class="point-body">靴・外遊び道具のあふれ先として使える。玄関のごちゃつきをここに逃がせる。</div>
+        </div>
+        <div class="point-item">
+          <div class="point-head">
+            <span class="point-num">4</span>
+            3階の配置が絶妙：書斎が防音壁になる
+          </div>
+          <div class="point-body">南側（寝室）と北側（Cの部屋）の間に書斎が入ることで夜泣きの音が遮断されやすい構造。</div>
+        </div>
+      </div>
+
+      <div class="floor-stack">
+        <div class="floor-item fl1">
+          <div class="floor-item-hd">1階 — 衣類とストックの拠点</div>
+          <div class="floor-item-body">
+            <ul>
+              <li><strong>居室クローゼット（折れ戸の中）</strong>：キャンプ細々・保留服・第2子用品</li>
+              <li><strong>部屋手前〜中央</strong>：家族全員の普段着チェスト＆ハンガーラック。洗濯機からそのまま移動</li>
+              <li><strong>部屋奥（南側の壁際）</strong>：プラボックスをスタッキング（キャンプ用品・アウトドア布類）</li>
+              <li><strong>階段下収納（玄関横）</strong>：外遊びグッズ・傘・日用品ストック</li>
+            </ul>
+          </div>
+        </div>
+        <div class="floor-item fl2">
+          <div class="floor-item-hd">2階 — 家族の憩い＋ねんね期ベビーの昼間スペース</div>
+          <div class="floor-item-body">
+            <ul>
+              <li>大人の服を<strong>完全撤去</strong>（ソファ・床の上に服ゼロを徹底）</li>
+              <li>ベランダ側かソファ横に<strong>ベビーベッドスペース</strong>を確保</li>
+              <li>キッチンから赤ちゃんに視線が届きやすい位置に設置</li>
+            </ul>
+          </div>
+        </div>
+        <div class="floor-item fl3">
+          <div class="floor-item-hd">3階 — 睡眠と静寂のフロア</div>
+          <div class="floor-item-body">
+            <ul>
+              <li><strong>南側・寝室</strong>：パパ＆瑞生。クローゼットは礼服・冬物のみ。床の隅にトミカ・プラレールコーナー</li>
+              <li><strong>中央・書斎</strong>：パパ専用。プリンターをここに集約</li>
+              <li><strong>北側・Cの部屋</strong>：ママ＆赤ちゃん。マットレス＋布団スペース。クローゼットに手芸用品。内鍵で安心</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card" style="background:var(--rose-bg);border-color:var(--rose-mid)">
+        <h4 style="color:var(--rose-dark)">この間取りだからこそ、今すぐやるべきこと3選</h4>
+        ① <strong>大物を車に避難</strong>：チャイルドシート（ゴミ袋被せ）＋スーツケース満杯にして積む<br>
+        ② <strong>ワラケンの箱に書類＆同人誌</strong>：段ボールに放り込んで玄関でドライバーさんに渡すだけ<br>
+        ③ <strong>1階入口付近に下着・パジャマ用の引き出しを設置</strong>：お風呂上がりの動線を今日から3歩に
+      </div>
+    </div>
+
+    <!-- ===== 時期別 部屋の使い方 ===== -->
+    <div class="section">
+      <div class="section-hd">
+        <span class="section-icon">📆</span>
+        <span class="section-title">時期別 部屋の使い方ロードマップ</span>
+      </div>
+      <div class="tl-wrap">
+        <table class="tl">
+          <thead>
+            <tr><th>時期</th><th>日中（リビング）</th><th>夜（寝る場所）</th><th>ポイント</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tl-period">生後0〜4ヶ月<br>ねんね期</td>
+              <td>2階リビングにベビーベッド設置。瑞生くんが走り回っても安全</td>
+              <td><strong>案A（推奨）:</strong> ママがリビングのソファ・簡易布団で就寝→夜間授乳で階段不要<br><strong>案B:</strong> 3階Cの部屋にママ＋赤ちゃん</td>
+              <td>パパ・瑞生の睡眠を邪魔しない構造</td>
+            </tr>
+            <tr>
+              <td class="tl-period">生後5ヶ月〜1歳半頃<br>ずり這い・ハイハイ期</td>
+              <td>2階リビングにベビーサークル導入。赤ちゃんを囲うor瑞生のおもちゃスペースを囲う</td>
+              <td><strong>3階Cの部屋に固定</strong><br>マットレス直置き＋布団並べ。転落リスクゼロ。内鍵で安全確保</td>
+              <td>誤飲対策MAX。細かいおもちゃは寝室（ドア閉）へ</td>
+            </tr>
+            <tr>
+              <td class="tl-period">1歳〜<br>子供2人体制</td>
+              <td>2階リビング中心</td>
+              <td><strong>子供2人でCの部屋</strong>（内鍵は外す）<br>→夫婦が寝室を取り戻す！</td>
+              <td>1歳で夜通し寝てくれるようになったら移行</td>
+            </tr>
+            <tr>
+              <td class="tl-period">将来<br>（8〜9年後）</td>
+              <td colspan="3">瑞生が中学生→書斎を個室化候補。Cの部屋は妹の部屋。夫婦は寝室をキープ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== Phase チェックリスト ===== -->
+    <div class="section">
+      <div class="section-hd">
+        <span class="section-icon">✅</span>
+        <span class="section-title">片付け実行チェックリスト</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-block">
+        <div class="phase-hd">
+          <span class="phase-badge p1">Phase 1</span>
+          <span class="phase-hd-title">床を空ける「避難＆外部委託」期</span>
+          <span class="phase-period">今週末〜来週</span>
+        </div>
+        <div class="phase-body">
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp01">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-papa">パパ</span>チャイルドシートに大きなゴミ袋（ホコリ除け）を被せ、車に積む<span class="ci-sub">→ 1〜2畳分のスペース確保。臨月36週頃に正式設置</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp02">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-papa">パパ</span>大型スーツケースの中にオフシーズンのアウター・アウトドア布類を詰めて車に積む<span class="ci-sub">→ スーツケースが中継収納として活躍</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp03">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-papa">パパ</span>1階のキャンプ用プラボックスを部屋の最奥・壁際に縦積みする</div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp04">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-both">相談</span>プリンターを書斎に移動できるか確認・移動<span class="ci-sub">「Wi-Fiで飛ばして印刷できるから書斎に置かせて」と提案</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp05">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>ワラケン「セキュリティーパック21ライト（1箱）」をWEBで注文する<span class="ci-sub">→ 書類＋同人誌30〜40冊が120サイズ1箱に余裕で収まる</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp06">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>宅配型トランクルーム（minikura or サマリーポケット）の専用段ボール2〜3箱を注文<span class="ci-sub">→ ロリィタ服・思い出の本・見せたくない本の安全な退避先</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-block">
+        <div class="phase-hd">
+          <span class="phase-badge p2">Phase 2</span>
+          <span class="phase-hd-title">座ってできる「仕分け＆書類消滅」期</span>
+          <span class="phase-period">10月中旬〜11月上旬</span>
+        </div>
+        <div class="phase-body">
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp07">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>機密書類（給与明細・カード明細・園プリント等）＋同人誌をホチキスごと段ボールに放り込み、ワラケン集荷依頼<span class="ci-sub">→ 玄関でドライバーさんに渡して終了。重い荷物は運ばなくてOK</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp08">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>ロリィタ服・思い出の本・見せたくない本を宅配トランクルームの箱に詰めて集荷に出す<span class="ci-sub">→ 月300〜500円/箱。カビ・日焼け防止の空調倉庫で保管</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp09">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>1階サイズアウト服を3分割に仕分ける（座ったままでOK）<span class="ci-sub">①パッチワーク用（車・新幹線柄など大好きだった服）→箱に畳んで入れるだけ<br>②女の子お下がり候補（白無地肌着・シンプルなアウター）→別の箱へ<br>③手放す（着倒したもの・男の子全開デザイン）→リサイクル袋へ</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp10">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-both">相談</span>パパのスーツを「礼服＋ジャストサイズ一軍1〜2着」に絞る相談<span class="ci-sub">→ 青山・AOKIの下取りキャンペーン（商品券交換）も活用可</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-block">
+        <div class="phase-hd">
+          <span class="phase-badge p3">Phase 3</span>
+          <span class="phase-hd-title">「1階クローゼット化」動線切り替え期</span>
+          <span class="phase-period">11月中旬〜産休前</span>
+        </div>
+        <div class="phase-body">
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp11">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-papa">パパ</span>1階入口付近にチェストやハンガーラックを設置（洗濯機から歩数ゼロの位置）<span class="ci-sub">→ 湿気対策として「水とりぞうさん」等の除湿剤も置く</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp12">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-both">二人</span>大人の下着・肌着・靴下・パジャマ・今週の普段着を1階チェストに移動<span class="ci-sub">→ お風呂上がりの着替えが1階で完結！</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp13">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>2階リビングの大人の服を完全撤去。2階の床・ソファの上を服ゼロにする</div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp14">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>Cの部屋の手芸用品をフタ付きボックスにまとめ部屋の隅へ。マットレス横に布団を並べるスペースを空ける<span class="ci-sub">→ 産後すぐにベビーが入れる部屋を作っておく</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp15">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-papa">パパ</span>3階寝室の床の一角に、瑞生の細かいおもちゃコーナー（カラーボックス＋ラグ）を設置<span class="ci-sub">→ ドアを閉めれば赤ちゃんの誤飲防止になる「聖域」</span></div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp16">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>2階リビングのベビーベッドの置き場所を決め、家具の配置を調整<span class="ci-sub">→ キッチンに近い位置に設置スペースを確保</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-block">
+        <div class="phase-hd">
+          <span class="phase-badge p4">Phase 4</span>
+          <span class="phase-hd-title">仕上げ「産前準備＆パッチワーク」期</span>
+          <span class="phase-period">産休入り（12月末）〜</span>
+        </div>
+        <div class="phase-body">
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp17">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-both">二人</span>2階リビングにベビーベッドを設置する（レンタルまたは実家から手配）</div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp18">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>1階クローゼットに新生児用の定位置を作る（肌着・ガーゼ・おむつストック）</div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp19">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-papa">パパ</span>臨月（36週頃）に車内のチャイルドシートを正式に取り付け・セッティング</div>
+          </div>
+          <div class="ci" onclick="toggleCheck(this)" data-key="rp20">
+            <div class="ci-cb"><span class="ci-check">✓</span></div>
+            <div class="ci-label"><span class="badge-mama">ママ</span>（産休中のお楽しみ）パッチワーク用箱の服にハサミを入れる〜瑞生の思い出に浸りながら針仕事<span class="ci-sub">→ 座ってできる作業。産休中のリフレッシュに最適</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== メモ ===== -->
+    <div class="section">
+      <div class="section-hd">
+        <span class="section-icon">💡</span>
+        <span class="section-title">無理しないためのルール</span>
+      </div>
+      <div class="info-card">
+        <h4>妊婦さんの安全ルール</h4>
+        ・重いもの・高いところは<strong>必ずパパにお願い</strong>（布団の上げ下ろし・大物の移動・衣装ケース）<br>
+        ・作業は<strong>1回15分タイマー制</strong>。途中でも休憩OK<br>
+        ・「2階から3階へ運ぶもの」は階段登り口にカゴをおいてためておく → 上がるついでに運ぶ<br>
+        ・お腹が張ったら即中止
+      </div>
+      <div class="info-card" style="background:var(--lavender-bg);border-color:#c0b0e0">
+        <h4 style="color:var(--lavender)">処分サービスまとめ</h4>
+        ・<strong>書類・同人誌の処分</strong>：ワラケン「セキュリティーパック21ライト」120サイズ1箱〜<br>
+        ・<strong>ロリィタ服・思い出本の保管</strong>：minikura / サマリーポケット 月300〜500円/箱<br>
+        ・<strong>スーツ下取り</strong>：洋服の青山・AOKI 下取りキャンペーン（商品券交換）
+      </div>
+    </div>
+
+  </div>
+
+  <footer><p>お部屋片付け計画 — 出産前に「回る家」を完成させよう</p></footer>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  const app = initializeApp({ databaseURL: "https://nasu-travel-default-rtdb.firebaseio.com" });
+  const db = getDatabase(app);
+  window._fbReady = false;
+  window.initFirebase = function () {
+    if (window._fbReady) return;
+    window._fbReady = true;
+    document.querySelectorAll('.ci[data-key]').forEach(item => {
+      const key = item.dataset.key;
+      onValue(ref(db, 'ikukyu2026/room/' + key), snap => {
+        item.classList.toggle('done', snap.val() === true);
+      });
+    });
+  };
+  window.setCheck = function (key, value) {
+    set(ref(db, 'ikukyu2026/room/' + key), value);
+  };
+</script>
+
+<script>
+  const AUTH_KEY = 'ikukyu2026_auth';
+  function checkPw() {
+    if (document.getElementById('pw-input').value === '1111') {
+      localStorage.setItem(AUTH_KEY, 'ok');
+      showMain();
+    } else {
+      document.getElementById('pw-err').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+    }
+  }
+  function showMain() {
+    document.getElementById('pw-screen').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    if (window.initFirebase) window.initFirebase();
+    else setTimeout(() => { if (window.initFirebase) window.initFirebase(); }, 800);
+  }
+  function logout() { localStorage.removeItem(AUTH_KEY); location.reload(); }
+  function toggleCheck(item) {
+    const key = item.dataset.key;
+    const now = item.classList.contains('done');
+    if (window.setCheck) window.setCheck(key, !now);
+    else item.classList.toggle('done');
+  }
+  if (localStorage.getItem(AUTH_KEY) === 'ok') showMain();
+</script>
+</body>
+</html>
