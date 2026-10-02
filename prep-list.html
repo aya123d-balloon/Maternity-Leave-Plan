@@ -65,14 +65,6 @@
     .pw-error { margin-top: .75rem; font-size: .85rem; color: var(--danger); display: none; }
 
     /* ===== LOGOUT ===== */
-    #logout-btn {
-      position: fixed; top: 12px; right: 14px; z-index: 100;
-      background: rgba(255,255,255,.15); backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.8);
-      font-size: .72rem; font-family: inherit; padding: .3rem .75rem;
-      border-radius: 20px; cursor: pointer; transition: all .2s;
-    }
-    #logout-btn:hover { background: rgba(255,255,255,.25); color: white; }
 
     /* ===== HEADER ===== */
     .site-header {
@@ -205,19 +197,23 @@
 <body>
 
 <div id="pw-screen">
-  <div class="pw-card">
-    <div class="pw-emoji">🍼</div>
+  <div id="pw-screen-init" class="pw-card">
+    <img src="pw-normal.png" style="width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:12px;">
     <p class="pw-title">出産準備リスト</p>
     <p class="pw-sub">持ち物・部屋・グッズ 準備チェックリスト</p>
     <input type="password" id="pw-input" class="pw-input" placeholder="••••" maxlength="10"
            onkeydown="if(event.key==='Enter')checkPw()">
     <button class="pw-btn" onclick="checkPw()">ひらく</button>
-    <p id="pw-err" class="pw-error">パスワードが違います。もう一度お試しください。</p>
+  </div>
+  <div id="pw-screen-error" class="pw-card" style="display:none">
+    <img src="pw-error.png" style="width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:12px;">
+    <p class="pw-title" style="color:var(--danger)">パスワードが違います</p>
+    <p class="pw-sub">もう一度確認してください</p>
+    <button class="pw-btn" onclick="goBack()" style="background:var(--muted);margin-top:.4rem">戻る</button>
   </div>
 </div>
 
 <div id="main" style="display:none">
-  <button id="logout-btn" onclick="logout()">ログアウト</button>
 
   <header class="site-header">
     <h1>出産準備リスト</h1>
@@ -505,6 +501,7 @@
 
   <footer>
     <p>出産準備リスト 2027年2月予定</p>
+    <p style="margin-top:.6rem"><button onclick="logout()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);font-size:.72rem;font-family:inherit;padding:.3rem .9rem;border-radius:20px;cursor:pointer;">ログアウト</button></p>
   </footer>
 </div>
 
@@ -586,10 +583,15 @@
       localStorage.setItem(AUTH_KEY, 'ok');
       showMain();
     } else {
-      document.getElementById('pw-err').style.display = 'block';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
+      document.getElementById('pw-screen-init').style.display = 'none';
+      document.getElementById('pw-screen-error').style.display = 'block';
     }
+  }
+  function goBack() {
+    document.getElementById('pw-screen-error').style.display = 'none';
+    document.getElementById('pw-screen-init').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+  }
   }
 
   function showMain() {
