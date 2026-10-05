@@ -22,6 +22,10 @@
       --text: #3d2530;
       --muted: #9a7080;
       --danger: #c8392b;
+      --gold: #b08040;
+      --gold-bg: #fdf5e0;
+      --green: #5a9e7a;
+      --green-bg: #eaf5ef;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -176,6 +180,43 @@
       background: var(--rose-dark); color: rgba(255,255,255,.6);
       text-align: center; padding: 1.5rem; font-size: .78rem;
     }
+
+    /* ===== DECISIONS ===== */
+    .decision-block {
+      margin-top: 2rem; background: white;
+      border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .decision-hd {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .75rem 1rem; background: var(--rose-bg);
+      border-bottom: 1px solid var(--border); cursor: pointer;
+      user-select: none;
+    }
+    .decision-hd-label {
+      font-size: .82rem; font-weight: 700; color: var(--rose); flex: 1;
+    }
+    .decision-hd-arrow { font-size: .7rem; color: var(--muted); transition: transform .2s; }
+    .decision-hd.open .decision-hd-arrow { transform: rotate(180deg); }
+    .decision-list { display: none; }
+    .decision-list.open { display: block; }
+    .decision-item {
+      padding: .8rem 1rem; border-bottom: 1px solid #f0e4ea; font-size: .8rem;
+    }
+    .decision-item:last-child { border-bottom: none; }
+    .decision-item-title {
+      font-size: .82rem; font-weight: 800; color: var(--rose); margin-bottom: .35rem;
+    }
+    .decision-item-body { color: var(--text); line-height: 1.75; }
+    .decision-item-body .pending {
+      display: inline-block; background: var(--gold-bg); color: var(--gold);
+      font-size: .7rem; font-weight: 700; padding: .05rem .45rem;
+      border-radius: 4px; margin-left: .3rem; border: 1px solid #e8d090;
+    }
+    .decision-item-body .done-badge {
+      display: inline-block; background: var(--green-bg); color: var(--green);
+      font-size: .7rem; font-weight: 700; padding: .05rem .45rem;
+      border-radius: 4px; margin-left: .3rem; border: 1px solid #b0d8c0;
+    }
   </style>
 </head>
 <body>
@@ -241,6 +282,57 @@
         <span class="history-hd-arrow" id="history-arrow">▼</span>
       </div>
       <div class="history-list" id="history-list"></div>
+    </div>
+
+    <!-- 決定事項まとめ -->
+    <div class="decision-block">
+      <div class="decision-hd" onclick="toggleDecisions()" id="decision-hd">
+        <span class="decision-hd-label">📋 決定事項まとめ（2026年10月）</span>
+        <span class="decision-hd-arrow" id="decision-arrow">▼</span>
+      </div>
+      <div class="decision-list" id="decision-list">
+
+        <div class="decision-item">
+          <div class="decision-item-title">🛏️ ベビーベッド体制</div>
+          <div class="decision-item-body">
+            <strong>夜（寝室）</strong>：ナイスベビー クワトロネット（標準120×70cm）9ヶ月プランレンタル＋3次元高反発マットセット。ベネフィット・ステーション Web18%OFF適用。床下収納付きでおむつ等を収納可。<br>
+            <strong>昼（リビング）</strong>：カトージ折りたたみ布団（床置き）。瑞生くんの誤飲から守る安全地帯として使用。<br>
+            <span class="pending">保留</span> 手持ちの「70×120cm・乾燥機OK」防水シーツが2枚あるか確認。なければ楽天・Amazonで購入。
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-item-title">📦 minikura（ミニクラ）</div>
+          <div class="decision-item-body">
+            <span class="done-badge">注文完了</span> HAKOプラン レギュラーBOX × 2箱。月額640円（320円×2箱）。<br>
+            <strong>発送期限：2026年12月末まで</strong>（1年以上預けると取り出し送料0円）<br>
+            箱1：思い出アイテム・本・趣味グッズ（20kg以内）<br>
+            箱2：ロリィタ服・好きな布類（ビニール袋＋防虫剤＋除湿シートを同封して密閉）<br>
+            集荷方法：ヤマト運輸の自宅集荷 or セブン・ファミマへQRコード持ち込み（送料0円）
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-item-title">🔥 ワラケン（機密書類・同人誌の溶解廃棄）</div>
+          <div class="decision-item-body">
+            <span class="done-badge">注文完了</span> セキュリティーパック21ライト（キット到着待ち）<br>
+            使う段ボール：手元の飲料ペットボトル24本入りの箱（約100サイズ）でOK<br>
+            入れるもの：機密書類（高さ約25cm分）＋自作同人誌（約30〜40冊）<br>
+            ホチキス・クリップは外さずそのままOK。専用伝票・セキュリティシールは自宅ポストに届く→ゆうパックセキュリティ便で集荷依頼
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-item-title">🏷️ 不用品・1階整理アクション</div>
+          <div class="decision-item-body">
+            <strong>ジモティー（イオン等で受け渡し・自宅バレ防止）</strong>：未開封 飛行機型小便器（0〜500円）、ピアノおもちゃ（0〜300円 or おもちゃ箱へキープ）<br>
+            <strong>絵本カバー</strong>：折らずにクリアファイルにまとめて保管→産休中のポチ袋リメイク素材に<br>
+            <strong>赤ちゃん向け絵本</strong>：袋・箱にまとめ棚の最下段へ（ゴールデンゾーンを空ける）<br>
+            <strong>テントタープ・ポール類</strong>：立てかけず<strong>横倒しで壁際に寝かせる</strong>（倒れて危険なため）
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -364,6 +456,13 @@
     const hd = document.querySelector('.history-hd');
     el.classList.toggle('open', historyOpen);
     hd.classList.toggle('open', historyOpen);
+  };
+
+  window.toggleDecisions = function () {
+    const el = document.getElementById('decision-list');
+    const hd = document.getElementById('decision-hd');
+    const open = el.classList.toggle('open');
+    hd.classList.toggle('open', open);
   };
 
   function insertAtCursor(text) {

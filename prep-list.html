@@ -368,8 +368,18 @@
       <div class="ci-list" id="cat-c">
         <div class="ci" onclick="toggleCheck(this)" data-key="pc01">
           <div class="ci-cb"><span class="ci-check">✓</span></div>
-          <div class="ci-label">ベビー布団 or ベビーベッド 準備完了<span class="ci-sub">窒息防止のため柔らかすぎるものは避ける</span></div>
+          <div class="ci-label">【夜・寝室】ナイスベビー クワトロネット（標準サイズ120×70cm）レンタル申込完了<span class="ci-sub">9ヶ月プラン／ベネフィット・ステーション Web18%OFFで申込。3次元高反発マット（標準サイズ用）もセットレンタル。床下収納あり（おむつ・シーツのストック場所として活用）</span></div>
           <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc01b">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">【昼・リビング】カトージ折りたたみ布団（床置き）準備完了<span class="ci-sub">瑞生くんの動線・おもちゃの誤飲から守る「安全地帯」として活用</span></div>
+          <span class="ci-tag tag-both">共通</span>
+        </div>
+        <div class="ci" onclick="toggleCheck(this)" data-key="pc01c">
+          <div class="ci-cb"><span class="ci-check">✓</span></div>
+          <div class="ci-label">シーツ確認：標準サイズ（70×120cm）かつ乾燥機対応の防水シーツ（キルトパッド一体型）が2枚あるか確認<span class="ci-sub">ナイスベビーのレンタルシーツは乾燥機NGのため、乾燥機OKのシーツを自前で用意。なければ楽天・Amazonで購入（防水キルトパッド一体型推奨）</span></div>
+          <span class="ci-tag tag-mama">ママ</span>
         </div>
         <div class="ci" onclick="toggleCheck(this)" data-key="pc02">
           <div class="ci-cb"><span class="ci-check">✓</span></div>
@@ -639,7 +649,7 @@
   }
 
   document.getElementById('new-item-text')?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') addItem();
+    if (e.key === 'Enter' && !e.isComposing) addItem();
   });
 
   if (localStorage.getItem(AUTH_KEY) === 'ok') showMain();
