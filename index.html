@@ -148,10 +148,10 @@
       border: 1px solid var(--border);
       box-shadow: 0 2px 10px rgba(160,82,112,.08);
     }
-    table { width: 100%; border-collapse: collapse; min-width: 960px; }
+    table { width: 100%; border-collapse: collapse; min-width: 0; }
     thead th {
       background: var(--rose); color: white;
-      padding: .75rem 1rem; text-align: left;
+      padding: .75rem .9rem; text-align: left;
       font-size: .82rem; font-weight: 700; white-space: nowrap;
     }
     tbody tr { border-bottom: 1px solid #f0dce4; }
@@ -160,11 +160,31 @@
     tbody tr:nth-child(even) { background: #fdf5f8; }
     tbody tr:hover { background: #fce4ed; transition: background .15s; }
     tbody td {
-      padding: .8rem 1rem; vertical-align: top;
+      padding: .75rem .9rem; vertical-align: top;
       font-size: .83rem; line-height: 1.65;
     }
-    td:first-child { font-weight: 800; color: var(--rose); white-space: nowrap; font-size: .9rem; }
-    .td-wide { min-width: 260px; }
+    td:first-child { font-weight: 800; color: var(--rose); white-space: nowrap; font-size: .9rem; width: 5rem; }
+    td:nth-child(2) { width: 28%; }
+    td:nth-child(3) { width: 22%; }
+    .td-wide { width: 45%; }
+
+    /* ===== STATUS CELL ===== */
+    .td-status { padding: .6rem .9rem !important; }
+    .st-row {
+      display: block;
+      padding: .2rem 0; border-bottom: 1px dashed #f0dce4; line-height: 1.6;
+    }
+    .st-row:last-child { border-bottom: none; }
+    .st-name {
+      display: inline-block; flex-shrink: 0;
+      font-size: .65rem; font-weight: 800;
+      padding: .1rem .45rem; border-radius: 10px;
+      white-space: nowrap; margin-top: .15rem;
+    }
+    .n-ay { background: #fce4ed; color: #b04a72; }
+    .n-yu { background: #f5ede8; color: #7d5448; }
+    .n-ms { background: #eaf5ef; color: #3d8060; }
+    .n-2k { background: #f0edf8; color: #6858a8; }
 
     /* ===== BADGES ===== */
     .badge {
@@ -296,6 +316,13 @@
       .container { padding: 1.2rem .75rem; }
       .toc-grid { grid-template-columns: 1fr 1fr; }
       .ci-date { display: none; }
+      tbody td { padding: .6rem .55rem; font-size: .78rem; }
+      td:first-child { font-size: .8rem; width: 4rem; }
+      td:nth-child(2) { width: 30%; }
+      td:nth-child(3) { width: 20%; }
+      .st-name { font-size: .6rem; padding: .08rem .35rem; }
+      .st-row { gap: .25rem; }
+      thead th { padding: .55rem .55rem; font-size: .75rem; }
     }
   </style>
 </head>
@@ -360,10 +387,7 @@
           <thead>
             <tr>
               <th>年月</th>
-              <th>綾乃</th>
-              <th>悠太</th>
-              <th>瑞生</th>
-              <th>第二子</th>
+              <th>家族の状況</th>
               <th>生活変化</th>
               <th class="td-wide">手続き・重要ToDo</th>
             </tr>
@@ -371,10 +395,11 @@
           <tbody>
             <tr>
               <td>2026年<br>10月</td>
-              <td>通常勤務<br>（引継ぎ準備）</td>
-              <td>通常勤務</td>
-              <td>めぐみ保育園（通常）</td>
-              <td>−</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>通常勤務<br>（引継ぎ準備）</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>通常勤務</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園（通常）</div>
+              </td>
               <td><strong>現状維持</strong><br>19時まで預かり（延長利用）</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k01">
@@ -387,16 +412,17 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k01c">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span>赤ちゃんの<strong>名前を考え始める</strong>。ブレストなど。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span>赤ちゃんの<strong>名前を考え始める</strong>。</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>2026年<br>11月</td>
-              <td><strong>11/24(火) 最終出社</strong><br>・Workday産休申請完了<br><strong>11/25(水)〜 PTO消化開始</strong></td>
-              <td>通常勤務</td>
-              <td>めぐみ保育園（通常）</td>
-              <td>−</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>11/24(火) 最終出社</strong><br>・Workday産休申請完了<br><strong>11/25(水)〜 PTO消化開始</strong></div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>通常勤務</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園（通常）</div>
+              </td>
               <td><strong>現状維持</strong><br>悠太フルタイムのため標準時間（18時＋延長19時）をキープ</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k02a">
@@ -407,10 +433,11 @@
             </tr>
             <tr>
               <td>2026年<br>12月</td>
-              <td><strong>PTO消化継続</strong>（〜12/28月）<br>・<strong>12月分から社保免除</strong><br><strong>12/29(火) 産前休業</strong></td>
-              <td>通常勤務</td>
-              <td>めぐみ保育園（通常）</td>
-              <td>−</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>PTO消化継続</strong>（〜12/28月）<br>・<strong>12月分から社保免除</strong><br><strong>12/29(火) 産前休業</strong></div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>通常勤務</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園（通常）</div>
+              </td>
               <td><strong>送迎の融通が利く時期</strong><br>綾乃は在宅療養。無理のない範囲で早めお迎えも可能</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k03">
@@ -454,10 +481,11 @@
             </tr>
             <tr>
               <td>2027年<br>1月</td>
-              <td>産前休業中<br>（休養・出産準備）</td>
-              <td>通常勤務<br>（最終引継ぎ）</td>
-              <td>めぐみ保育園（通常）</td>
-              <td>−</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>産前休業中<br>（休養・出産準備）</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>通常勤務<br>（最終引継ぎ）</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園（通常）</div>
+              </td>
               <td><strong>現状維持</strong><br>悠太フルタイムのため標準時間継続</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k04">
@@ -540,10 +568,12 @@
             </tr>
             <tr>
               <td>2027年<br>2月</td>
-              <td><strong>2/8 出産予定日</strong>（40週）<br>・計画分娩のため<strong>38週前後（1/25頃）に前倒しの可能性大</strong><br><span class="warn">⚠️ 出産が早まった場合、産後休業・育休・グローバル育休の日程もすべて前にスライド</span><br><a href="https://kawaguchiladys-clinic.net/hospitalization/" target="_blank" rel="noopener" class="ref-link">かわぐちレディース 入院</a></td>
-              <td><strong>育休突入</strong><br>・産後パパ育休（28日）<br>・手取り実質10割</td>
-              <td>めぐみ保育園<br>（悠太が送迎担当）</td>
-              <td><strong>誕生！</strong><br>出生届・健診</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>2/8 出産予定日</strong>（40週）<br>・計画分娩のため<strong>38週前後（1/25頃）に前倒しの可能性大</strong><br><span class="warn">⚠️ 出産が早まった場合、産後休業・育休・グローバル育休の日程もすべて前にスライド</span><br><a href="https://kawaguchiladys-clinic.net/hospitalization/" target="_blank" rel="noopener" class="ref-link">かわぐちレディース 入院</a></div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>育休突入</strong><br>・産後パパ育休（28日）<br>・手取り実質10割</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園<br>（悠太が送迎担当）</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span><strong>誕生！</strong><br>出生届・健診</div>
+              </td>
               <td>
                 悠太が育休中のため送迎担当。<br>
                 綾乃は産後休業中（〜4/5）のため<strong>保育標準時間はまだ維持</strong>。<br>
@@ -619,10 +649,12 @@
             </tr>
             <tr>
               <td>2027年<br>3〜4月</td>
-              <td><strong>4/6〜 グローバル育休</strong><br><span class="warn">（計画分娩で出産が早まった場合は3月中旬〜）</span><br>・給与100%（半年間）</td>
-              <td><strong>通常の育児休業へ移行</strong><br>・手取り約8割（給付率67%）</td>
-              <td>5歳進級<br>（年長クラス）</td>
-              <td>2〜3ヶ月健診・首すわり</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>4/6〜 グローバル育休</strong><br><span class="warn">（計画分娩で出産が早まった場合は3月中旬〜）</span><br>・給与100%（半年間）</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>通常の育児休業へ移行</strong><br>・手取り約8割（給付率67%）</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>5歳進級<br>（年長クラス）</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>2〜3ヶ月健診・首すわり</div>
+              </td>
               <td>
                 <strong class="warn">【生活変化①】保育短時間に切り替わる</strong><br>
                 4/6〜綾乃の育休開始により<strong>保育短時間（8:30〜16:30）</strong>へ変更。<br>
@@ -642,10 +674,12 @@
             </tr>
             <tr>
               <td>2027年<br>5〜9月</td>
-              <td>グローバル育休継続</td>
-              <td>育休継続（専業主夫体制）<br>※8月中旬以降は手取り約6割</td>
-              <td>年長生活</td>
-              <td>離乳食スタート<br>（5〜6ヶ月）</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>グローバル育休継続</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続（専業主夫体制）<br>※8月中旬以降は手取り約6割</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>年長生活</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>離乳食スタート<br>（5〜6ヶ月）</div>
+              </td>
               <td>
                 <strong>安定期</strong><br>
                 16:30お迎えから家族全員でゆったり過ごせる期間
@@ -664,10 +698,12 @@
             </tr>
             <tr>
               <td>2027年<br>10月</td>
-              <td><strong>グローバル育休終了</strong><br>・国の法定育休手当へ切替</td>
-              <td>育休継続</td>
-              <td>里小の「就学時健康診断」案内到着</td>
-              <td>8ヶ月（ハイハイ等）</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>グローバル育休終了</strong><br>・国の法定育休手当へ切替</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>里小の「就学時健康診断」案内到着</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>8ヶ月（ハイハイ等）</div>
+              </td>
               <td>現状維持（短時間預かり継続）</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k09b">
@@ -682,10 +718,12 @@
             </tr>
             <tr>
               <td>2027年<br>11月</td>
-              <td>育休継続</td>
-              <td>育休継続</td>
-              <td>就学時健康診断（里小）</td>
-              <td>9ヶ月</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>就学時健康診断（里小）</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>9ヶ月</div>
+              </td>
               <td>
                 <strong>学校行事の発生</strong><br>
                 平日の半日、里小での就学時健診あり（悠太または綾乃が付き添い）
@@ -706,10 +744,12 @@
             </tr>
             <tr>
               <td>2027年12月<br>〜2028年1/5</td>
-              <td>育休継続</td>
-              <td>育休継続</td>
-              <td>里小 入学説明会</td>
-              <td>10〜11ヶ月</td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>里小 入学説明会</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>10〜11ヶ月</div>
+              </td>
               <td>現状維持</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k12">
@@ -724,10 +764,12 @@
             </tr>
             <tr>
               <td>2028年<br>1月下旬〜2月</td>
-              <td><strong>【判定】2月入所結果判明</strong></td>
-              <td><strong>1歳誕生日（2/8）</strong></td>
-              <td>卒園準備</td>
-              <td><strong>1歳の誕生日！</strong></td>
+              <td class="td-status">
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>【判定】2月入所結果判明</strong></div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>1歳誕生日（2/8）</strong></div>
+                <div class="st-row"><span class="st-name n-ms">瑞生</span>卒園準備</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span><strong>1歳の誕生日！</strong></div>
+              </td>
               <td>
                 <strong class="warn">結果によって生活が分岐<br>（下記ルートA or B）</strong>
               </td>
@@ -769,16 +811,18 @@
             <table>
               <thead>
                 <tr>
-                  <th>年月</th><th>綾乃</th><th>悠太</th><th>瑞生</th><th>第二子</th><th>生活変化</th><th class="td-wide">手続き・重要ToDo</th>
+                  <th>年月</th><th>家族の状況</th><th>生活変化</th><th class="td-wide">手続き・重要ToDo</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>2028年<br>2月</td>
-                  <td><strong>2月（または3/15）復職</strong><br>・Gradual Return to Work開始<br>・フルリモート×フレックス</td>
-                  <td><strong>2月（または3/15）復職</strong><br>・6時間時短スタート<br>・夕方の送迎・夕食主導</td>
-                  <td>年長（めぐみ）<br>きょうだいで<strong>同じ園に通園！</strong></td>
-                  <td><strong>0歳児クラス入園！</strong><br>慣らし保育（悠太が担当）</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>2月（または3/15）復職</strong><br>・Gradual Return to Work開始<br>・フルリモート×フレックス</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span><strong>2月（または3/15）復職</strong><br>・6時間時短スタート<br>・夕方の送迎・夕食主導</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span>年長（めぐみ）<br>きょうだいで<strong>同じ園に通園！</strong></div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span><strong>0歳児クラス入園！</strong><br>慣らし保育（悠太が担当）</div>
+                  </td>
                   <td>
                     <strong>送迎1箇所の黄金期間</strong><br>
                     悠太が16時退社 → 16:30に2人まとめてお迎え。夕飯準備もスムーズ
@@ -800,10 +844,12 @@
                 </tr>
                 <tr>
                   <td>2028年<br>3月</td>
-                  <td>通常フルタイム業務定着</td>
-                  <td>時短継続（16時台上がり）</td>
-                  <td><strong>めぐみ保育園 卒園</strong></td>
-                  <td>慣らし完了・通常預かり定着</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>通常フルタイム業務定着</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>時短継続（16時台上がり）</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span><strong>めぐみ保育園 卒園</strong></div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span>慣らし完了・通常預かり定着</div>
+                  </td>
                   <td>
                     <strong>通常リズム確立</strong><br>
                     悠太主導で16:30お迎え → 18時夕食
@@ -821,10 +867,12 @@
                 </tr>
                 <tr>
                   <td>2028年<br>4月</td>
-                  <td>フルタイム継続<br>（手取り満額維持）</td>
-                  <td>時短継続<br>（小1＋1歳児送迎主導）</td>
-                  <td><strong>里小 入学！</strong><br><strong>4/1から公設学童（里小）へ！</strong></td>
-                  <td>1歳児クラスへ自動進級</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>フルタイム継続<br>（手取り満額維持）</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>時短継続<br>（小1＋1歳児送迎主導）</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span><strong>里小 入学！</strong><br><strong>4/1から公設学童（里小）へ！</strong></div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span>1歳児クラスへ自動進級</div>
+                  </td>
                   <td>
                     <strong class="warn">【生活変化②】小学校生活スタート</strong><br>
                     瑞生：入学初日から公設学童（里小）利用スタート！<br>
@@ -839,10 +887,12 @@
                 </tr>
                 <tr>
                   <td>2028年<br>5月</td>
-                  <td>安定稼働</td>
-                  <td>安定稼働<br>（夕方オペレーション確立）</td>
-                  <td>小学校生活に慣れる時期</td>
-                  <td>1歳児クラス定着</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>安定稼働</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>安定稼働<br>（夕方オペレーション確立）</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span>小学校生活に慣れる時期</div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span>1歳児クラス定着</div>
+                  </td>
                   <td>
                     <strong>生活リズム完全定着</strong><br>
                     学校・放課後・保育園のオペレーションが日常化
@@ -869,16 +919,18 @@
             <table>
               <thead>
                 <tr>
-                  <th>年月</th><th>綾乃</th><th>悠太</th><th>瑞生</th><th>第二子</th><th>生活変化</th><th class="td-wide">手続き・重要ToDo</th>
+                  <th>年月</th><th>家族の状況</th><th>生活変化</th><th class="td-wide">手続き・重要ToDo</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>2028年<br>2月</td>
-                  <td>育休継続</td>
-                  <td>育休継続</td>
-                  <td>卒園準備</td>
-                  <td>自宅でゆったり<br>1歳のお祝い</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span>卒園準備</div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span>自宅でゆったり<br>1歳のお祝い</div>
+                  </td>
                   <td>
                     <strong>現状維持</strong><br>
                     瑞生は16:30めぐみお迎え。第二子は自宅保育
@@ -896,10 +948,12 @@
                 </tr>
                 <tr>
                   <td>2028年<br>3月</td>
-                  <td>育休継続<br>・5/15復職に向けた準備</td>
-                  <td>育休継続<br>・ニールと5/15時短契約準備</td>
-                  <td><strong>めぐみ保育園 卒園</strong></td>
-                  <td>1歳1ヶ月</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続<br>・5/15復職に向けた準備</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続<br>・ニールと5/15時短契約準備</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span><strong>めぐみ保育園 卒園</strong></div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span>1歳1ヶ月</div>
+                  </td>
                   <td>
                     <strong>卒園カウントダウン</strong><br>
                     生活リズムの立て直し準備
@@ -921,10 +975,12 @@
                 </tr>
                 <tr>
                   <td>2028年<br>4月</td>
-                  <td>育休継続（4月中）<br>・小1＆慣らし保育の立ち上げ集中</td>
-                  <td>育休継続（4月中）<br>・第二子の慣らし保育送迎を主担当</td>
-                  <td><strong>里小 入学！</strong><br>（4月中は自宅直帰 or 民間学童）</td>
-                  <td><strong>めぐみ保育園 入園！</strong><br>慣らし保育（悠太が主担当）</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続（4月中）<br>・小1＆慣らし保育の立ち上げ集中</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続（4月中）<br>・第二子の慣らし保育送迎を主担当</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span><strong>里小 入学！</strong><br>（4月中は自宅直帰 or 民間学童）</div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span><strong>めぐみ保育園 入園！</strong><br>慣らし保育（悠太が主担当）</div>
+                  </td>
                   <td>
                     <strong class="warn">【夫婦ともに育休中で小1＆慣らしWスタート！】</strong><br>
                     瑞生：入学初日から夫婦でフォロー。4月中は自宅直帰または民間学童<br>
@@ -939,10 +995,12 @@
                 </tr>
                 <tr>
                   <td>2028年<br>5月</td>
-                  <td><strong>5/15 フルタイム復職！</strong><br>・Gradual Return to Work活用<br>・フルリモート×フレックス</td>
-                  <td><strong>5/15 時短復職スタート！</strong><br>・6時間時短開始<br>・夕方の送迎・夕食主導</td>
-                  <td>GW明け・<strong>公設学童（里小）5月開始！</strong></td>
-                  <td><strong>慣らし保育完了！</strong><br>通常時間預かりへ移行</td>
+                  <td class="td-status">
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>5/15 フルタイム復職！</strong><br>・Gradual Return to Work活用<br>・フルリモート×フレックス</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span><strong>5/15 時短復職スタート！</strong><br>・6時間時短開始<br>・夕方の送迎・夕食主導</div>
+                    <div class="st-row"><span class="st-name n-ms">瑞生</span>GW明け・<strong>公設学童（里小）5月開始！</strong></div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span><strong>慣らし保育完了！</strong><br>通常時間預かりへ移行</div>
+                  </td>
                   <td>
                     <strong class="warn">【生活変化③】5/15 夫婦ダブル復職！</strong><br>
                     瑞生：公設学童（里小）スタート<br>
