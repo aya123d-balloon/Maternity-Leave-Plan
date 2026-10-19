@@ -133,6 +133,14 @@
     .mi-select-status.progress { background: #e8eaf6; color: #283593; border-color: #9fa8da; }
     .mi-select-status.done { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
 
+    /* ===== MARKET TABS ===== */
+    .market-tabs { display: flex; gap: 0; padding: .7rem 1.1rem .3rem; }
+    .market-tab { padding: .38rem 1.1rem; font-size: .8rem; font-weight: 700; font-family: inherit; cursor: pointer; border: 1.5px solid var(--border); background: white; color: var(--muted); transition: all .2s; }
+    .market-tab:first-child { border-radius: 8px 0 0 8px; border-right: none; }
+    .market-tab:last-child { border-radius: 0 8px 8px 0; }
+    .market-tab.active { background: var(--rose); color: white; border-color: var(--rose); }
+    .market-tab:first-child.active + .market-tab { border-left: none; }
+
     /* ===== FLOOR PLAN ===== */
     .floorplan-wrap { text-align: center; margin-bottom: 1.2rem; }
     .floorplan-img { max-width: 100%; border-radius: 12px; border: 1.5px solid var(--border); box-shadow: 0 2px 12px rgba(160,82,112,.1); }
@@ -392,6 +400,10 @@
           <span class="phase-hd-title">不用品・手放しアイテム管理</span>
           <span class="phase-period">ツール＆進捗ピックリスト</span>
         </div>
+        <div class="market-tabs">
+          <button class="market-tab active" onclick="switchMarketTab('active', this)">未着手・対応中</button>
+          <button class="market-tab" onclick="switchMarketTab('done', this)">完了</button>
+        </div>
         <div class="phase-body" id="market-list-container">
           <!-- JSで動的レンダリング -->
         </div>
@@ -507,26 +519,6 @@
       </div>
     </div>
 
-    <!-- ===== メモ ===== -->
-    <div class="section">
-      <div class="section-hd">
-        <span class="section-icon">💡</span>
-        <span class="section-title">無理しないためのルール</span>
-      </div>
-      <div class="info-card">
-        <h4>妊婦さんの安全ルール</h4>
-        ・重いもの・高いところは<strong>必ずパパにお願い</strong>（布団の上げ下ろし・大物の移動・衣装ケース）<br>
-        ・作業は<strong>1回15分タイマー制</strong>。途中でも休憩OK<br>
-        ・「2階から3階へ運ぶもの」は階段登り口にカゴをおいてためておく → 上がるついでに運ぶ<br>
-        ・お腹が張ったら即中止
-      </div>
-      <div class="info-card" style="background:var(--lavender-bg);border-color:#c0b0e0">
-        <h4 style="color:var(--lavender)">処分・保管サービスまとめ（確定版）</h4>
-        ・<strong>書類・同人誌の処分</strong>：<a href="https://www.waraken.co.jp/security-pack-21/" target="_blank" rel="noopener" class="sv-link">ワラケン セキュリティーパック21ライト</a>。専用伝票＋ゆうパックセキュリティ便で集荷依頼→箱ごと完全溶解処理<br>
-        ・<strong>ロリィタ服・思い出品の保管</strong>：<a href="https://minikura.com/lineup/nophotobox.html" target="_blank" rel="noopener" class="sv-link">minikura HAKOプラン レギュラーBOX × 2箱</a>（月額640円）。<strong>12月末までに発送→1年以上で取り出し送料0円</strong><br>
-        ・<strong>スーツ下取り</strong>：洋服の青山・AOKI 下取りキャンペーン（商品券交換）
-      </div>
-    </div>
 
   </div>
 
@@ -548,7 +540,8 @@
       { id: 'rp_w01', title: 'ワラケン「セキュリティーパック21ライト」に機密書類・同人誌を箱詰め', sub: 'ホチキス・クリップごと投入OK', badge: 'mama' },
       { id: 'rp_w02', title: 'ワラケン専用伝票＋シールを貼り、ゆうパックで集荷依頼', sub: '玄関でドライバーに渡して完全溶解', badge: 'mama' },
       { id: 'rp_m01', title: 'minikura HAKOプラン レギュラー2箱にロリィタ服・思い出の品を箱詰め', sub: '箱1:本・思い出 / 箱2:ロリィタ服(防虫剤同封)', badge: 'mama' },
-      { id: 'rp_m02', title: 'minikuraの集荷依頼を出して発送', sub: '1年以上預けると取り出し送料無料', badge: 'mama' }
+      { id: 'rp_m02', title: 'minikuraの集荷依頼を出して発送', sub: '1年以上預けると取り出し送料無料', badge: 'mama' },
+      { id: 'rp_t01', title: 'テントタープ・ポール類を横倒しにして壁際に寝かせる', sub: '立てかけると倒れて危険なため横置きに', badge: 'papa' }
     ],
     p2: [
       { id: 'rp_wg01', title: '足立製作所 4段スイングランドリーワゴンの組み立て完了', sub: '1階クローゼット前に設置', badge: 'papa' },
@@ -557,7 +550,8 @@
       { id: 'rp_sm01', title: '透明スクエアバッグ（小物キャンプ＋夏虫除け）を1つに合体し3階へ', sub: 'アルミテーブル等と一緒にパパが運ぶ', badge: 'mama' },
       { id: 'rp_kc01', title: 'キッズチェア2脚をスタッキングしてクローゼットまたは棚の奥へ避難', sub: '来客用・下の子おすわり期用にキープ', badge: 'both' },
       { id: 'rp10', title: 'パパのスーツを「礼服＋ジャストサイズ一軍」に絞る相談', sub: '下取り活用も可', badge: 'both' },
-      { id: 'rp22', title: '絵本カバーをクリアファイルにまとめて保管（折らずに）', sub: '産休中のポチ袋リメイク素材', badge: 'mama' }
+      { id: 'rp22', title: '絵本カバーをクリアファイルにまとめて保管（折らずに）', sub: '産休中のポチ袋リメイク素材', badge: 'mama' },
+      { id: 'rp_e01', title: '赤ちゃん向け絵本を袋・箱にまとめて棚の最下段へ移動', sub: 'ゴールデンゾーンを空けるため', badge: 'mama' }
     ],
     p3: [
       { id: 'rp_lv01', title: '2階リビングTVボード下の「瑞生くんの服」を1階ワゴンへお引越し', sub: 'デイリー服を1階ワゴン下段へ移す', badge: 'mama' },
@@ -573,7 +567,8 @@
       { id: 'rp17', title: '2階リビングにベビーベッドを設置する（ナイスベビー標準サイズ）', sub: '', badge: 'both' },
       { id: 'rp_sh01', title: '持っていたBRILBEの防水シーツ（70×120cm・2枚組）を水通ししてセット', sub: '衣装ケースから発掘して準備！', badge: 'mama' },
       { id: 'rp19', title: '臨月（36週頃）に車内のチャイルドシートを正式に取り付け・セッティング', sub: '', badge: 'papa' },
-      { id: 'rp20', title: '（産休中のお楽しみ）パッチワーク用箱の服にハサミを入れる', sub: '瑞生の思い出に浸りながら針仕事', badge: 'mama' }
+      { id: 'rp20', title: '（産休中のお楽しみ）パッチワーク用箱の服にハサミを入れる', sub: '瑞生の思い出に浸りながら針仕事', badge: 'mama' },
+      { id: 'rp_kb01', title: 'カトージ折りたたみ布団をリビングに設置（昼間の安全地帯）', sub: '瑞生の誤飲から守る床置き拠点。ナイスベビー クワトロネットは3階寝室（夜用レンタル）', badge: 'both' }
     ]
   };
 
@@ -591,6 +586,7 @@
   window.dbChecksRef = ref(db, 'ikukyu2026/room_custom/checks');
   window.dbMarketRef = ref(db, 'ikukyu2026/room_custom/market');
 
+  let currentMarketTab = 'active';
   let currentTasks = {};
   let currentChecks = {};
   let currentMarket = {};
@@ -603,6 +599,7 @@
         set(window.dbTasksRef, DEFAULT_TASKS);
       } else {
         currentTasks = val;
+        migrateNewTasks(val);
         renderTasks();
       }
     });
@@ -627,6 +624,17 @@
       }
     });
   };
+
+  function migrateNewTasks(existing) {
+    ['p1', 'p2', 'p3', 'p4'].forEach(phase => {
+      const cur = existing[phase] || [];
+      const curIds = new Set(cur.map(t => t.id));
+      const toAdd = (DEFAULT_TASKS[phase] || []).filter(t => !curIds.has(t.id));
+      if (toAdd.length > 0) {
+        set(ref(db, `ikukyu2026/room_custom/tasks/${phase}`), [...cur, ...toAdd]);
+      }
+    });
+  }
 
   function renderTasks() {
     ['p1', 'p2', 'p3', 'p4'].forEach(phase => {
@@ -710,12 +718,17 @@
     container.innerHTML = '';
 
     const items = Object.entries(currentMarket).map(([key, val]) => ({ key, ...val }));
-    if (items.length === 0) {
-      container.innerHTML = '<div style="padding:1rem 1.1rem;font-size:.8rem;color:var(--muted)">品目が登録されていません</div>';
+    const filtered = currentMarketTab === 'done'
+      ? items.filter(it => it.status === 'done')
+      : items.filter(it => it.status !== 'done');
+
+    if (filtered.length === 0) {
+      const msg = currentMarketTab === 'done' ? '完了した品目がありません' : '未着手・対応中の品目がありません';
+      container.innerHTML = `<div style="padding:1rem 1.1rem;font-size:.8rem;color:var(--muted)">${msg}</div>`;
       return;
     }
 
-    items.forEach(it => {
+    filtered.forEach(it => {
       const row = document.createElement('div');
       row.className = 'mi-item';
       row.innerHTML = `
@@ -771,6 +784,13 @@
   window.deleteMarketItem = function(key) {
     if (!confirm('この品目を削除しますか？')) return;
     remove(ref(db, `ikukyu2026/room_custom/market/${key}`));
+  };
+
+  window.switchMarketTab = function(tab, btn) {
+    currentMarketTab = tab;
+    document.querySelectorAll('.market-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMarket();
   };
 </script>
 
