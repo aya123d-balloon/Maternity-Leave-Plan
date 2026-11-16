@@ -75,8 +75,6 @@
       display: none;
     }
 
-    /* ===== LOGOUT ===== */
-
     /* ===== SITE HEADER ===== */
     .site-header {
       background: linear-gradient(150deg, #e8889f 0%, var(--rose) 55%, var(--rose-dark) 100%);
@@ -241,36 +239,6 @@
     .rb .route-body tbody tr:hover { background: #ecddd8; }
     .route-block .table-wrap { border-radius: 0; border: none; box-shadow: none; }
 
-    /* ===== CHECKLIST ===== */
-    #checklist { list-style: none; }
-    .ci {
-      display: flex; align-items: flex-start; gap: .9rem;
-      padding: .85rem 1.1rem; background: white;
-      border: 1px solid var(--border); border-radius: 12px;
-      margin-bottom: .55rem; cursor: pointer;
-      transition: background .15s, opacity .2s;
-    }
-    .ci:hover { background: var(--rose-bg); }
-    .ci.done { background: #fdf4f7; opacity: .6; }
-    .ci.done .ci-text { text-decoration: line-through; color: var(--muted); }
-
-    .ci-cb {
-      width: 22px; height: 22px; flex-shrink: 0; margin-top: .15rem;
-      border: 2px solid var(--border); border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      transition: all .2s; font-size: .85rem; color: white;
-    }
-    .ci.done .ci-cb { background: var(--rose); border-color: var(--rose); }
-    .ci-check { display: none; }
-    .ci.done .ci-check { display: block; }
-
-    .ci-text { flex: 1; font-size: .875rem; line-height: 1.6; }
-    .ci-date {
-      flex-shrink: 0; align-self: center; font-size: .72rem; font-weight: 700;
-      color: var(--rose); background: var(--rose-bg); padding: .15rem .6rem;
-      border-radius: 20px; white-space: nowrap;
-    }
-
     /* ===== INLINE CHECKLIST ===== */
     .ic {
       display: flex; align-items: flex-start; gap: .5rem;
@@ -315,7 +283,6 @@
     @media (max-width: 580px) {
       .container { padding: 1.2rem .75rem; }
       .toc-grid { grid-template-columns: 1fr 1fr; }
-      .ci-date { display: none; }
       tbody td { padding: .6rem .55rem; font-size: .78rem; }
       td:first-child { font-size: .8rem; width: 4rem; }
       td:nth-child(2) { width: 30%; }
@@ -351,7 +318,7 @@
 
   <header class="site-header" id="top">
     <h1>産休・育休・復職・生活変化<br>統合ロードマップ</h1>
-    <p>2026年10月 〜 2028年5月</p>
+    <p>2026年10月 〜 2028年5月（1/28計画分娩確定版）</p>
     <nav class="site-nav">
       <a href="index.html" class="nav-link active">📅 ロードマップ</a>
       <a href="prep-list.html" class="nav-link">🍼 出産準備リスト</a>
@@ -367,7 +334,7 @@
       <div class="toc-heading">目次</div>
       <div class="toc-grid">
         <a href="#sec1" class="toc-item"><span class="toc-icon">📅</span>1. 共通タイムライン</a>
-        <a href="#sec2" class="toc-item"><span class="toc-icon">🔀</span>2. 2028年2月の分岐</a>
+        <a href="#sec2" class="toc-item"><span class="toc-icon">🔀</span>2. 2028年1〜2月の分岐</a>
         <a href="#route-a" class="toc-item"><span class="toc-icon">🟢</span>ルートA（早期復職）</a>
         <a href="#route-b" class="toc-item"><span class="toc-icon">🔵</span>ルートB（4月入園）</a>
       </div>
@@ -379,7 +346,7 @@
         <div class="section-num">1</div>
         <div>
           <div class="section-label">共通タイムライン</div>
-          <div class="section-sub">2026年10月 〜 2028年2月（分岐前）</div>
+          <div class="section-sub">2026年10月 〜 2028年1月（分岐前）</div>
         </div>
       </div>
       <div class="table-wrap">
@@ -427,7 +394,7 @@
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k02a">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">綾乃</span><strong>11月末まで</strong><br>フリードの<strong>法定12ヶ月点検</strong>を予約・実施する。</div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>11月末まで</strong><br>フリードの<strong>法定12ヶ月点検</strong>を予約・実施する。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k03c">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -454,23 +421,23 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k03d">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span>「産後パパ育休（28日間）」および「育児休業（〜2028年2月）」を取得するための育休申出書を派遣元「ニール」へ提出する。<strong>申出書には出産予定日（40週・2/8）で記載。</strong><br>
-                  <span class="warn">⚠️38週での計画分娩</span>出産当日にニールへ「本日1月28日に生まれました」と連絡すれば、<strong>実際の出産日から育休開始日を前倒し</strong>できる。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span>「産後パパ育休（28日間：2/1〜2/28予定）」および「育児休業（〜2028年1/27）」を取得するための育休申出書を派遣元「ニール」へ提出する。<strong>申出書には出産予定日（40週・2/8）で記載。</strong><br>
+                  <span class="warn">⚠️1/28計画分娩確定：</span>出産当日（1/28）にニールへ「本日生まれました。退院日の2/1(月)より産後パパ育休を開始します」と連絡すれば、<strong>退院日に合わせて開始日を前倒し</strong>できる。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_01">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月（産休入り後）</strong><br><strong>洗濯槽の徹底クリーニング</strong>（塩素系クリーナーやオキシ漬けで半日かけて槽洗浄コース）。ベビー洗剤切り替えの下準備として。</div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02">
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02a">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月（産休入り後）</strong><br><strong>エアコン掃除</strong>。エアコンクリーニング申し込み。</div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02">
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02b">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月（産休入り後）</strong><br><strong>加湿器の掃除</strong>。加湿器フィルター購入。</div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_03">
-                  <div class="ic-cb"><span class="ci-check">✓</span></div>
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_03a">
+                  <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月（産休入り後）</strong><br><strong>お風呂場の大掃除＆防カビくん煙剤</strong></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_04">
@@ -486,43 +453,44 @@
             <tr>
               <td>2027年<br>1月</td>
               <td class="td-status">
-                <div class="st-row"><span class="st-name n-ay">綾乃</span>産前休業中<br>（休養・出産準備）</div>
-                <div class="st-row"><span class="st-name n-yu">悠太</span>通常勤務<br>（最終引継ぎ）</div>
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>1/27(水) 入院</strong><br><strong>1/28(木) 計画分娩・出産！</strong><br><strong>1/29(金)〜 産後休業</strong>（〜3/25）<br><a href="https://kawaguchiladys-clinic.net/hospitalization/" target="_blank" rel="noopener" class="ref-link">かわぐちレディース 入院</a></div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>通常勤務<br><strong>1/28(木) 有給休暇</strong>（立ち会い）</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園（通常）</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span><strong>1/28 誕生！</strong></div>
               </td>
-              <td><strong>現状維持</strong><br>悠太フルタイムのため標準時間継続</td>
+              <td>
+                <strong>【入院期間：1/27〜1/31】</strong><br>
+                綾乃は入院中（経膣分娩・産後4日目退院）。<br>
+                悠太は1/28有給＋土日休み（1/30・31）で瑞生のお留守番・送迎を担当
+              </td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k04b">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>1月上旬</strong><br>入院前に健康保険出産育児一時金・付加金支給申請書（健保指定様式）を用意しておく。<a href="https://www.salesforce-kenpo.jp/situation_11.jsp" target="_blank" rel="noopener" class="ref-link">Salesforce健保 出産</a></div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k04c">
-                  <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>1月中旬〜下旬</strong><br>かわぐちレディースで<strong>計画分娩の日程確定・入院前後スケジュール</strong>を確認する（第二子のため38週前後に設定される可能性大）。<a href="https://kawaguchiladys-clinic.net/hospitalization/" target="_blank" rel="noopener" class="ref-link">入院スケジュール</a></div>
-                </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k04d">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月中</strong><br>計画分娩前後の<strong>瑞生の預け先（じいじ・ぱあぱへの連絡）</strong>と送迎・宿泊の段取りを確定する。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月中（1/27入院前まで）</strong><br><strong>1/27(水)入院〜2/1(月)退院</strong>前後の<strong>瑞生の預け先（じいじ・ぱあぱへの連絡）</strong>と送迎・宿泊の段取りを確定する。</div>
                 </div>
-                 <div class="ic" onclick="toggleCheck(this)" data-key="k04">
+                <div class="ic" onclick="toggleCheck(this)" data-key="k04">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-yu">悠太</span><strong>1月中旬</strong><br>チャイルドシートを設置する。</div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02">
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02c">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太</span><strong>1月</strong><br><strong>加湿器の掃除</strong>。加湿器汚れ最終確認。</div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_03">
-                  <div class="ic-cb"><span class="ci-check">✓</span></div>
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_03b">
+                  <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太</span><strong>1月</strong><br><strong>シンク掃除</strong>。赤ちゃんの沐浴スペースを清潔にリセット。</div>
                 </div>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02">
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_d12_02d">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太</span><strong>1月</strong><br><strong>Airdogの掃除</strong>。フィルター確認くらい。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan01">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月21日 </strong><br><strong>ベビーベッドの受け取り</strong>。ナイスベビーから届いたら周辺環境整え始め。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月21日</strong><br><strong>ベビーベッドの受け取り</strong>。ナイスベビーから届いたら周辺環境整え始め。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan02">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -530,7 +498,7 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan03">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月中旬</strong><br><strong>ベビーベッドの寝具セット＆ホコリ除けカバー</strong>。防水シーツ・敷パッド・シーツを敷き、退院当日までバスタオルでホコリをガード。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月中旬</strong><br><strong>ベビーベッドの寝具セット＆ホコリ除けカバー</strong>。防水シーツ・敷パッド・シーツを敷き、退院当日（2/1）までバスタオルでホコリをガード。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan04">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -546,7 +514,7 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan07">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>入院前（1月中）</strong><br><strong>沐浴用にシンク徹底洗浄</strong>。可能な限り殺菌＆シャワーヘッドの洗浄も。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1/27入院前まで</strong><br><strong>沐浴用にシンク徹底洗浄</strong>。可能な限り殺菌＆シャワーヘッドの洗浄も。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan08">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -554,76 +522,79 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan09">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>1月中旬まで</strong><br><strong>瑞生にプレゼント＆お手紙を仕込む</strong>。入院中に1日1つあけていくお手紙や小さいプレゼントを準備。</div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>1月中旬まで</strong><br><strong>瑞生にプレゼント＆お手紙を仕込む</strong>。入院中（1/27〜2/1）に1日1つあけていくお手紙や小さいプレゼントを準備。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan10">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月下旬（入院前）</strong><br><strong>リビングにママ用寝起き布団をセッティング</strong>。産後しばらく過ごすための来客布団を置く。入院中は畳んでカバーでホコリ除け。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1/26頃（入院前日）</strong><br><strong>リビングにママ用寝起き布団をセッティング</strong>。産後しばらく過ごすための来客布団を置く。入院中は畳んでカバーでホコリ除け。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan11">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>1月下旬（入院前）</strong><br><strong>ママ用布団サイドの「手元サバイバルボックス」を設置</strong>。ナイトライト（充電済）、ペットボトル＋ストローキャップ、母乳パッド、ティッシュ、ウェットティッシュ、リップ・保湿剤。</div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>1/26頃（入院前日）</strong><br><strong>ママ用布団サイドの「手元サバイバルボックス」を設置</strong>。ナイトライト（充電済）、ペットボトル＋ストローキャップ、母乳パッド、ティッシュ、ウェットティッシュ、リップ・保湿剤。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan12">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月下旬（入院前）</strong><br><strong>温湿度計の設置・部屋の保温チェック</strong>。リビングと寝室が室温20〜22℃・湿度50〜60%になっているか確認。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1/26頃（入院前日）</strong><br><strong>温湿度計の設置・部屋の保温チェック</strong>。リビングと寝室が室温20〜22℃・湿度50〜60%になっているか確認。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan13">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>1月下旬（入院前）</strong><br><strong>退院時荷物（自宅置き分）をまとめる</strong>。パパが退院当日に病院へ持参する荷物（ママの退院着、赤ちゃんの退院着一式、おくるみ等）を紙袋にまとめ玄関へ。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>1/26頃（入院前日）</strong><br><strong>退院時荷物（自宅置き分）をまとめる</strong>。パパが2/1(月)退院当日に病院へ持参する荷物（ママの退院着、赤ちゃんの退院着一式、おくるみ等）を紙袋にまとめ玄関へ。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_jan14">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月下旬（入院前）</strong><br><strong>冷蔵庫に緊急連絡先メモを掲示</strong>。クリニックの電話番号・小児救急（#8000）・休日当番医など。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1/26頃（入院前日）</strong><br><strong>冷蔵庫に緊急連絡先メモを掲示</strong>。クリニックの電話番号・小児救急（#8000）・休日当番医など。</div>
+                </div>
+                <div class="ic" onclick="toggleCheck(this)" data-key="k_jan15">
+                  <div class="ic-cb"><span class="ic-check">✓</span></div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>1月28日(木) 出産当日</strong><br>派遣元「ニール」へ<strong>「本日1/28に出産しました。退院日の2/1(月)から産後パパ育休（28日間：2/1〜2/28）を開始します」</strong>と連絡を入れる。</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>2027年<br>2月</td>
               <td class="td-status">
-                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>2/8 出産予定日</strong>（40週）<br>・計画分娩のため<strong>38週前後（1/25頃）に前倒しの可能性大</strong><br><span class="warn">⚠️ 出産が早まった場合、産後休業・育休・グローバル育休の日程もすべて前にスライド</span><br><a href="https://kawaguchiladys-clinic.net/hospitalization/" target="_blank" rel="noopener" class="ref-link">かわぐちレディース 入院</a></div>
-                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>育休突入</strong><br>・産後パパ育休（28日）<br>・手取り実質10割</div>
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>2/1(月) 10:00〜10:30 退院！</strong><br>・産後休業中（〜3/25）</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>2/1(月)〜 育休突入！</strong><br>・産後パパ育休（2/1〜2/28・28日間）<br>・手取り実質10割</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>めぐみ保育園<br>（悠太が送迎担当）</div>
-                <div class="st-row"><span class="st-name n-2k">第二子</span><strong>誕生！</strong><br>出生届・健診</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>新生児期・1ヶ月健診</div>
               </td>
               <td>
-                悠太が育休中のため送迎担当。<br>
-                綾乃は産後休業中（〜4/5）のため<strong>保育標準時間はまだ維持</strong>。<br>
-                <span class="warn">⚠️ 4月〜綾乃の育休開始後に保育短時間（8:30〜16:30）へ変更。</span>
+                <strong>2/1(月)退院当日から悠太の28日間育休がフル稼働！</strong><br>
+                綾乃は産後休業中（〜3/25）のため<strong>保育標準時間はまだ維持</strong>。<br>
+                <span class="warn">⚠️ 3/26〜綾乃の育休開始後に保育短時間（8:30〜16:30）へ変更。</span>
               </td>
               <td>
-                
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_papa01">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>入院中（自宅で）</strong><br><strong>洗濯機の自動投入をベビー用洗剤へ切り替え</strong>。タンクをぬるま湯で洗い乾かしてからベビー用洗剤を補充・投入量を設定。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>入院中（1/27〜1/31 自宅で）</strong><br><strong>洗濯機の自動投入をベビー用洗剤へ切り替え</strong>。タンクをぬるま湯で洗い乾かしてからベビー用洗剤を補充・投入量を設定。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_papa02">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>入院中（自宅で）</strong><br><strong>哺乳瓶・乳首の開封・洗浄・初回消毒</strong>。洗浄後スチーム/薬液/煮沸で除菌し清潔なケースへセット。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>入院中（1/27〜1/31 自宅で）</strong><br><strong>哺乳瓶・乳首の開封・洗浄・初回消毒</strong>。洗浄後スチーム/薬液/煮沸で除菌し清潔なケースへセット。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_papa03">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>入院中（自宅で）</strong><br><strong>おむつ用ゴミ箱に新しいゴミ袋・防臭袋をセット</strong>。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>入院中（1/27〜1/31 自宅で）</strong><br><strong>おむつ用ゴミ箱に新しいゴミ袋・防臭袋をセット</strong>。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_papa04">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>退院前日〜当日の朝</strong><br><strong>ベビーベッド＆リビング布団のホコリ除けカバーを外し</strong>、コロコロをかけておく。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>1/31(日)〜2/1(月)朝</strong><br><strong>ベビーベッド＆リビング布団のホコリ除けカバーを外し</strong>、コロコロをかけておく。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k_papa05">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>退院直前（赤ちゃんが家に入る前）</strong><br><strong>部屋の暖房・加湿を事前に稼働</strong>。赤ちゃんが到着する前にリビングを室温20〜22℃に整える。</div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>2/1(月) 退院お迎え出発前</strong><br><strong>部屋の暖房・加湿を事前に稼働</strong>。赤ちゃんが到着する前にリビングを室温20〜22℃に整える。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05a">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>入院中</strong><br>出生届を書く。</div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>入院中（1/28〜1/31）</strong><br>出生届を書く。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05b">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>出生翌日から14日以内</strong><br>出生届を川口市役所へ提出する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01060/060/3/2567.html" target="_blank" rel="noopener" class="ref-link">川口市 出生届</a></div>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>期限：2月10日(水)まで（1/28出生翌日から14日以内）</strong><br>出生届を川口市役所へ提出する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01060/060/3/2567.html" target="_blank" rel="noopener" class="ref-link">川口市 出生届</a></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05c">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>出生翌日から15日以内</strong><br>児童手当の認定を受けるために「認定請求書」を川口市へ提出する。マイナンバーカードでの電子申請も可。<a href="https://logoform.jp/f/gbUe2" target="_blank" rel="noopener" class="ref-link">電子申請</a><a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/020/5/2/44350.html" target="_blank" rel="noopener" class="ref-link">川口市 児童手当</a></div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>期限：2月11日(木)まで（出生翌日から15日以内）</strong><br>児童手当の認定を受けるために「認定請求書」を川口市へ提出する。マイナンバーカードでの電子申請も可。<a href="https://logoform.jp/f/gbUe2" target="_blank" rel="noopener" class="ref-link">電子申請</a><a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/020/5/2/44350.html" target="_blank" rel="noopener" class="ref-link">川口市 児童手当</a></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05d">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -631,11 +602,11 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05e">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>出生翌日から15日以内</strong><br>子ども医療費受給資格証の交付を受けるために申請書を川口市へ提出する。電子申請も可。<a href="https://logoform.jp/form/zRQD/763024?r%5B81%3Aselect%5D=81" target="_blank" rel="noopener" class="ref-link">電子申請</a><a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/020/5/2/4209.html" target="_blank" rel="noopener" class="ref-link">川口市 子ども医療費</a></div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>期限：2月11日(木)まで（出生翌日から15日以内）</strong><br>子ども医療費受給資格証の交付を受けるために申請書を川口市へ提出する。電子申請も可。<a href="https://logoform.jp/form/zRQD/763024?r%5B81%3Aselect%5D=81" target="_blank" rel="noopener" class="ref-link">電子申請</a><a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/020/5/2/4209.html" target="_blank" rel="noopener" class="ref-link">川口市 子ども医療費</a></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05f">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>退院時</strong><br>退院時に窓口でEPOSカード一括決済を行い、病院から以下の書類を受け取る：①領収書・診療明細書（産科医療補償制度加入機関の印および直接支払制度を利用していない旨の記載があるもの）、②健康保険出産育児一時金・付加金支給申請書（「医師・助産師または市区町村長の証明」欄：かわぐちレディースクリニックで証明印をもらう。最悪、出生届提出済みの住民票〔世帯全員・続柄記載〕の添付で代用可）。<a href="https://www.salesforce-kenpo.jp/situation_11.jsp" target="_blank" rel="noopener" class="ref-link">Salesforce健保 出産</a></div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>2/1(月) 退院時</strong><br>退院時に窓口でEPOSカード一括決済を行い、病院から以下の書類を受け取る：①領収書・診療明細書（産科医療補償制度加入機関の印および直接支払制度を利用していない旨の記載があるもの）、②健康保険出産育児一時金・付加金支給申請書（「医師・助産師または市区町村長の証明」欄：かわぐちレディースクリニックで証明印をもらう。最悪、出生届提出済みの住民票〔世帯全員・続柄記載〕の添付で代用可）。<a href="https://www.salesforce-kenpo.jp/situation_11.jsp" target="_blank" rel="noopener" class="ref-link">Salesforce健保 出産</a></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k05g">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -651,12 +622,12 @@
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k07">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>産後パパ育休（28日）終了後 or 生後8週経過後</strong><br>「出生後休業支援給付金（手取り10割相当）」の認定を受けるために以下の書類をニール経由でハローワークへ申請する：綾乃の「育児休暇取得証明書」「育児休業申出書」「配偶者が給付金対象である申告書」。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000158500.html" target="_blank" rel="noopener" class="ref-link">厚労省 公式</a><br>
+                  <div class="ic-body"><span class="badge b-yu">悠太</span><strong>産後パパ育休（2/1〜2/28）終了後</strong><br>「出生後休業支援給付金（手取り10割相当）」の認定を受けるために以下の書類をニール経由でハローワークへ申請する：綾乃の「育児休暇取得証明書」「育児休業申出書」「配偶者が給付金対象である申告書」。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000158500.html" target="_blank" rel="noopener" class="ref-link">厚労省 公式</a><br>
                   <span class="warn">⚠️ 給付金の実際の振込は申請から1〜2ヶ月後（4〜5月頃）。2〜3月の生活費は貯蓄から立替えておくこと。</span></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k07a">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>退院後〜産後8週以内</strong><br>川口市の<strong>産後ケア事業</strong>（宿泊型・デイサービス型・訪問型）を検討・予約する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01090/050/boshihoken/ninnsin/36146.html" target="_blank" rel="noopener" class="ref-link">川口市 産後ケア</a></div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>退院後〜産後8週以内（〜3/25）</strong><br>川口市の<strong>産後ケア事業</strong>（宿泊型・デイサービス型・訪問型）を検討・予約する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01090/050/boshihoken/ninnsin/36146.html" target="_blank" rel="noopener" class="ref-link">川口市 産後ケア</a></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k04e">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -667,14 +638,14 @@
             <tr>
               <td>2027年<br>3〜4月</td>
               <td class="td-status">
-                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>4/6〜 グローバル育休</strong><br><span class="warn">（計画分娩で出産が早まった場合は3月中旬〜）</span><br>・給与100%（半年間）</div>
-                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>通常の育児休業へ移行</strong><br>・手取り約8割（給付率67%）</div>
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>3/26(金)〜 グローバル育休</strong><br>・給与100%（半年間：〜9/25）</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>3/1(月)〜 通常の育児休業へ移行</strong><br>・手取り約8割（給付率67%）</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>5歳進級<br>（年長クラス）</div>
                 <div class="st-row"><span class="st-name n-2k">第二子</span>2〜3ヶ月健診・首すわり</div>
               </td>
               <td>
                 <strong class="warn">【生活変化①】保育短時間に切り替わる</strong><br>
-                4/6〜綾乃の育休開始により<strong>保育短時間（8:30〜16:30）</strong>へ変更。<br>
+                3/26〜綾乃の育休開始（4月度〜）により<strong>保育短時間（8:30〜16:30）</strong>へ変更。<br>
                 8:30送り → 16:30迎え（悠太が担当）<br>
                 悠太が家事・料理・外遊びを主導
               </td>
@@ -692,10 +663,10 @@
             <tr>
               <td>2027年<br>5〜9月</td>
               <td class="td-status">
-                <div class="st-row"><span class="st-name n-ay">綾乃</span>グローバル育休継続</div>
-                <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続（専業主夫体制）<br>※8月中旬以降は手取り約6割</div>
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>グローバル育休継続<br><strong>9/25(土) GPL終了</strong><br><strong>9/26(日)〜 法定育休手当へ切替</strong></div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続（専業主夫体制）<br>※8月以降は手取り約6割</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>年長生活</div>
-                <div class="st-row"><span class="st-name n-2k">第二子</span>離乳食スタート<br>（5〜6ヶ月）</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>離乳食スタート（5〜6ヶ月）<br>8ヶ月（ハイハイ等）</div>
               </td>
               <td>
                 <strong>安定期</strong><br>
@@ -705,6 +676,10 @@
                 <div class="ic" onclick="toggleCheck(this)" data-key="k08a">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-yu">悠太</span>2ヶ月に1回、ニールの案内に従い「育児休業給付金支給申請書」を定期提出する。</div>
+                </div>
+                <div class="ic" onclick="toggleCheck(this)" data-key="k09b">
+                  <div class="ic-cb"><span class="ic-check">✓</span></div>
+                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>9月上旬（期限：9月中旬）</strong><br>9/25のグローバル育休終了後の国の育休給付金（9/26〜）を受給するために、SalesforceのES経由でSATO社労士法人へ「法定育児休業給付金」の支給申請手続きを依頼する。</div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k08">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -716,17 +691,13 @@
             <tr>
               <td>2027年<br>10月</td>
               <td class="td-status">
-                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>グローバル育休終了</strong><br>・国の法定育休手当へ切替</div>
+                <div class="st-row"><span class="st-name n-ay">綾乃</span>法定育休継続</div>
                 <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>里小の「就学時健康診断」案内到着</div>
-                <div class="st-row"><span class="st-name n-2k">第二子</span>8ヶ月（ハイハイ等）</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>9ヶ月</div>
               </td>
               <td>現状維持（短時間預かり継続）</td>
               <td>
-                <div class="ic" onclick="toggleCheck(this)" data-key="k09b">
-                  <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>10月上旬（期限：10月中旬）</strong><br>グローバル育休終了後の国の育休給付金を受給するために、SalesforceのES経由でSATO社労士法人へ「法定育児休業給付金」の支給申請手続きを依頼する。</div>
-                </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k09">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
                   <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>10月中旬（期限：10月下旬）</strong><br>川口市の保育所4月1次申込＋公設学童（里小）一次受付の双方に夫婦の証明書が必要なため、綾乃はSalesforce（ESチケット）、悠太はニールへ、それぞれ秋の保活・<strong>学童</strong>提出用の「就労証明書（最新版）」を<strong>【各2部】</strong>発行依頼する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/050/4/1754.html" target="_blank" rel="noopener" class="ref-link">川口市 様式DL</a></div>
@@ -739,7 +710,7 @@
                 <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続</div>
                 <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>就学時健康診断（里小）</div>
-                <div class="st-row"><span class="st-name n-2k">第二子</span>9ヶ月</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>10ヶ月</div>
               </td>
               <td>
                 <strong>学校行事の発生</strong><br>
@@ -765,27 +736,27 @@
                 <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続</div>
                 <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>里小 入学説明会</div>
-                <div class="st-row"><span class="st-name n-2k">第二子</span>10〜11ヶ月</div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span>11ヶ月</div>
               </td>
               <td>現状維持</td>
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k12">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月下旬</strong><br>川口市ホームページで「2月受入可能数一覧（空き枠）」を確認する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/050/3/1752.html" target="_blank" rel="noopener" class="ref-link">川口市 空き状況</a></div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月上旬（期限：川口市1月途中入所締切＝例年12/5頃）</strong><br><span class="warn">★【1/28出産により必須】</span>第二子の1歳誕生日が<strong>2028年1月28日</strong>となるため、ハローワークでの育休延長要件（1歳誕生日月の保留通知）を満たす目的で、川口市役所へ<strong>「2028年1月途中入所（0歳児）」申込書</strong>（近隣の空き0人園等を記載）を提出する。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/050/3/1752.html" target="_blank" rel="noopener" class="ref-link">川口市 空き状況</a></div>
                 </div>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k12b">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月下旬（期限：2028年1月5日必着）</strong><br>悠太の育休給付金を4月まで継続するための「正当な保留通知」を確保するために（または早期入園）、川口市役所へ第二子の「2月途中入所（0歳児）」申込書を提出する。めぐみ保育園に空きがあれば「めぐみ単願」、空きが0なら「近隣の空き0人園」を記載。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/050/faq/6537.html" target="_blank" rel="noopener" class="ref-link">川口市 申込案内</a></div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>12月下旬（期限：2028年1月5日必着）</strong><br>めぐみ保育園の「2月受入可能数一覧（空き枠）」を確認し、空きがあれば「2月途中入所（0歳児）」申込書を提出する（めぐみ単願）。<a href="https://www.city.kawaguchi.lg.jp/soshiki/01080/050/faq/6537.html" target="_blank" rel="noopener" class="ref-link">川口市 申込案内</a></div>
                 </div>
               </td>
             </tr>
             <tr>
-              <td>2028年<br>1月下旬〜2月</td>
+              <td>2028年<br>1月</td>
               <td class="td-status">
-                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>【判定】2月入所結果判明</strong></div>
-                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>1歳誕生日（2/8）</strong></div>
+                <div class="st-row"><span class="st-name n-ay">綾乃</span><strong>1/27(木) 法定育休満了</strong><br>（延長育休へ移行）</div>
+                <div class="st-row"><span class="st-name n-yu">悠太</span><strong>1/28(金) 1歳誕生日！</strong><br>【判定】1月保留・2月入所結果判明</div>
                 <div class="st-row"><span class="st-name n-ms">瑞生</span>卒園準備</div>
-                <div class="st-row"><span class="st-name n-2k">第二子</span><strong>1歳の誕生日！</strong></div>
+                <div class="st-row"><span class="st-name n-2k">第二子</span><strong>1/28 1歳の誕生日！</strong></div>
               </td>
               <td>
                 <strong class="warn">結果によって生活が分岐<br>（下記ルートA or B）</strong>
@@ -793,8 +764,8 @@
               <td>
                 <div class="ic" onclick="toggleCheck(this)" data-key="k13">
                   <div class="ic-cb"><span class="ic-check">✓</span></div>
-                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span>結果受領後速やか（期限：2月中旬）<br>
-                川口市からの利用調整結果通知書を確認し、ルートAまたはルートBの手続きへ進む。</div>
+                  <div class="ic-body"><span class="badge b-bt">悠太・綾乃</span><strong>1月中旬〜下旬（期限：1/28誕生日直後）</strong><br>
+                川口市からの「1月入所保留通知書（および2月利用調整結果通知書）」を確認し、ルートAまたはルートBの手続きへ進む。</div>
                 </div>
               </td>
             </tr>
@@ -847,15 +818,15 @@
                   <td>
                     <div class="ic" onclick="toggleCheck(this)" data-key="kra01">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
-                      <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>内定直後（期限：1月末）</strong><br>Salesforceのマネージャー・ESへ復職日の「前倒し（2月付）」を申請し、Gradual Return to Workの適用を確定させる。</div>
+                      <div class="ic-body"><span class="badge b-ay">綾乃</span><strong>内定直後（期限：1月末）</strong><br>Salesforceのマネージャー・ESへ復職日の「前倒し（2月または3/15付）」を申請し、Gradual Return to Workの適用を確定させる。</div>
                     </div>
                     <div class="ic" onclick="toggleCheck(this)" data-key="kra02">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
-                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>内定直後（期限：1月末）</strong><br>ニールへ連絡し、2月からの復職と「1日6時間時短勤務契約」を結ぶ。</div>
+                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>内定直後（期限：1月末）</strong><br>ニールへ連絡し、復職と「1日6時間時短勤務契約（〜2029年1月27日の2歳誕生日前日まで）」を結ぶ。</div>
                     </div>
                     <div class="ic" onclick="toggleCheck(this)" data-key="k15">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
-                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>2月復職後（期限：2月下旬）</strong><br>「育児時短就労給付金（減額給与の10%相当補填）」の受給のために申請書一式をニール経由でハローワークへ提出する。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00037.html" target="_blank" rel="noopener" class="ref-link">厚労省 公式</a></div>
+                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>2月復職後（期限：復職当月末）</strong><br>「育児時短就労給付金（減額給与の10%相当補填）」の受給のために申請書一式をニール経由でハローワークへ提出する。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00037.html" target="_blank" rel="noopener" class="ref-link">厚労省 公式</a></div>
                     </div>
                   </td>
                 </tr>
@@ -926,7 +897,7 @@
       <div class="route-block rb" id="route-b">
         <div class="route-hd">
           <div class="route-label">ルートB</div>
-          <div class="route-title">2月は保留となり、予定通り「4月1日入園（1歳児）」となった場合</div>
+          <div class="route-title">2月は保留・見送りとなり、予定通り「4月1日入園（1歳児）」となった場合</div>
           <div class="route-merit">
             メリット：川口市の復職猶予（翌月15日まで）により<strong>5月15日復職</strong>。4月中は「公設学童」が使えない代わりに、<strong>「夫婦ともに育休中で4月は小1のそばにいられる」</strong>という最大のメリット！瑞生の入学直後の1ヶ月を丸ごとフォローできます。
           </div>
@@ -941,12 +912,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>2028年<br>2月</td>
+                  <td>2028年<br>1月末〜2月</td>
                   <td class="td-status">
-                    <div class="st-row"><span class="st-name n-ay">綾乃</span>育休継続</div>
-                    <div class="st-row"><span class="st-name n-yu">悠太</span>育休継続</div>
+                    <div class="st-row"><span class="st-name n-ay">綾乃</span>延長育休継続</div>
+                    <div class="st-row"><span class="st-name n-yu">悠太</span>延長育休継続</div>
                     <div class="st-row"><span class="st-name n-ms">瑞生</span>卒園準備</div>
-                    <div class="st-row"><span class="st-name n-2k">第二子</span>自宅でゆったり<br>1歳のお祝い</div>
+                    <div class="st-row"><span class="st-name n-2k">第二子</span>自宅でゆったり<br>1歳のお祝い（1/28）</div>
                   </td>
                   <td>
                     <strong>現状維持</strong><br>
@@ -955,7 +926,7 @@
                   <td>
                     <div class="ic" onclick="toggleCheck(this)" data-key="krb01">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
-                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>保留通知受領後速やか（期限：2/8誕生日直後）</strong><br>育休給付金を5月復職まで延長するために「育児休業給付金支給対象期間延長事由認定申告書」＋川口市の「保留通知書の写し」をニール経由でハローワークへ提出する。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00040.html" target="_blank" rel="noopener" class="ref-link">厚労省 延長厳格化</a><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000158500.html" target="_blank" rel="noopener" class="ref-link">育休給付金 公式</a></div>
+                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>1月入所保留通知受領後速やか（期限：1/28誕生日直後）</strong><br>育休給付金を5月復職まで延長するために「育児休業給付金支給対象期間延長事由認定申告書」＋川口市の「1月入所保留通知書の写し」をニール経由でハローワークへ提出する。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00040.html" target="_blank" rel="noopener" class="ref-link">厚労省 延長厳格化</a><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000158500.html" target="_blank" rel="noopener" class="ref-link">育休給付金 公式</a></div>
                     </div>
                     <div class="ic" onclick="toggleCheck(this)" data-key="krb02">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -982,7 +953,7 @@
                     </div>
                     <div class="ic" onclick="toggleCheck(this)" data-key="krb04">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
-                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>3月上旬（期限：3月中旬）</strong><br>ニールと「<strong>5/15復職・1日6時間時短勤務</strong>」の雇用契約を正式締結する（契約期間：<strong>2029年2月</strong>の第二子2歳誕生日まで）。</div>
+                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>3月上旬（期限：3月中旬）</strong><br>ニールと「<strong>5/15復職・1日6時間時短勤務</strong>」の雇用契約を正式締結する（契約期間：<strong>2029年1月27日</strong>の第二子2歳誕生日前日まで）。</div>
                     </div>
                     <div class="ic" onclick="toggleCheck(this)" data-key="krb05">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -1026,7 +997,7 @@
                   <td>
                     <div class="ic" onclick="toggleCheck(this)" data-key="krb07">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
-                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>5月中旬（期限：5月下旬）</strong><br>「育児時短就労給付金（時短による賃金低下分10%相当補填）」の受給のために「育児時短就労給付金支給申請書」一式をニール経由で提出する。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00037.html" target="_blank" rel="noopener" class="ref-link">厚労省 公式</a></div>
+                      <div class="ic-body"><span class="badge b-yu">悠太</span><strong>5月中旬（期限：5月下旬）</strong><br>「育児時短就労給付金（時短による賃金低下分10%相当補填）」の受給のために「育児時短就労給付金支給申請書」一式をニール経由で提出する（2029年1月27日まで受給）。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000160564_00037.html" target="_blank" rel="noopener" class="ref-link">厚労省 公式</a></div>
                     </div>
                     <div class="ic" onclick="toggleCheck(this)" data-key="krb08">
                       <div class="ic-cb"><span class="ic-check">✓</span></div>
@@ -1041,7 +1012,6 @@
       </div>
       <div class="back-top"><a href="#top">↑ 目次へ戻る</a></div>
     </section>
-
 
   </div><!-- /container -->
 
